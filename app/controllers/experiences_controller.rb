@@ -21,7 +21,7 @@ class ExperiencesController < ApplicationController
     authorize @experience
 
     if @experience.save
-      redirect_to experiences_path
+      redirect_to profile_path
     else
       render :new
     end
@@ -34,13 +34,13 @@ class ExperiencesController < ApplicationController
   def update
     @experience.update(find_params)
     authorize @experience
-    redirect_to experiences_path
+    redirect_to profile_path
   end
 
   def destroy
     @experience.destroy
     authorize @experience
-    redirect_to experiences_path
+    redirect_to profile_path
   end
 
   private

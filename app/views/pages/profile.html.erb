@@ -1,1 +1,14 @@
 <h1><%= @user.email %>'s profile</h1>
+
+<h2>Experiences in Sports</h2>
+<% @user.experiences.each do |experience| %>
+<p><%= experience.user.email %></p>
+<p><%= experience.sport.name %></p>
+<p><%= experience.skill_level %></p>
+<p><%= link_to "Edit my expertise", edit_experience_path(experience) %></p>
+<p><%= link_to "Delete", experience_path(experience), :method => :delete, data: {:confirm => "You sure?" } %></p>
+<% end %>
+
+
+
+<%= link_to "Add an expertise", new_experience_path %>
