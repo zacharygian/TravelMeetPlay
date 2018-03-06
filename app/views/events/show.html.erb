@@ -2,3 +2,6 @@
 <p>Find me in app/views/events/show.html.erb</p>
 
 <%= @event.sport.name %>
+
+<%= button_to "book", new_event_booking_path(@event),
+class: "btn btn-primary"%>
