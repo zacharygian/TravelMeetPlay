@@ -1,2 +1,7 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>Hi Zach, here are all the events in your area:</h1>
+
+<ul>
+  <% @events.each do |event| %>
+  <li> <%= event.id %> </li>
+  <% end %>
+</ul>
