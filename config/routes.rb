@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
+
+  resources :events do
+    resources :bookings, except: [ :index ]
+    resources :reviews, only: [ :show, :new, :create, :destroy ]
+  end
+  resources :experiences
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

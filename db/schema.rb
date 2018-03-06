@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305091212) do
+ActiveRecord::Schema.define(version: 20180306022225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_bookings_on_event_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "sport_id"
+    t.string "location"
+    t.datetime "date"
+    t.string "status"
+    t.bigint "host_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "max_players"
+    t.index ["host_id"], name: "index_events_on_host_id"
+    t.index ["sport_id"], name: "index_events_on_sport_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "sport_id"
+    t.integer "skill_level"
+    t.integer "game_counter"
+    t.integer "win_counter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sport_id"], name: "index_experiences_on_sport_id"
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.string "score"
+    t.integer "rating"
+    t.text "review_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_reviews_on_event_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +84,11 @@ ActiveRecord::Schema.define(version: 20180305091212) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "events"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "events", "sports"
+  add_foreign_key "experiences", "sports"
+  add_foreign_key "experiences", "users"
+  add_foreign_key "reviews", "events"
+  add_foreign_key "reviews", "users"
 end
