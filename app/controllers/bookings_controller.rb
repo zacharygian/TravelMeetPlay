@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
 private
 
   def find_event
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:even_id])
   end
 
   def find_booking
