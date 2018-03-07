@@ -2,8 +2,17 @@ class EventsController < ApplicationController
   before_action :set_event, only: [ :show, :edit, :destroy ]
 
   def index
-    @events = policy_scope(Event)
+@events = policy_scope(Event)
     # @events = Event.all
+    if params[:search].present?
+      sql_query = " \
+        events.location ILIKE :search \
+        OR sports.name ILIKE :search \
+      "
+      @events = Event.joins(:sport).where(sql_query, search: "%#{params[:search]}%")
+    else
+       @events = policy_scope(Event)
+    end
   end
 
   def show
