@@ -11,7 +11,6 @@
   <p>This is an event you created.</p>
 <% else %>
   <p>Would you like to register for this event?</p>
-  <%= button_to "Register", new_event_booking_path(@event), class: "btn btn-primary"%>
+  <%= link_to "Register", new_event_booking_path(@event), class: "btn btn-primary"%>
 <% end %>
-
 

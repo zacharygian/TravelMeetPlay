@@ -1,18 +1,25 @@
 class BookingsController < ApplicationController
+  before_action :find_event, only: [:new]
+
   def show
   end
 
   def new
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
+    @booking.event = @event
+    @booking.user = current_user
+    @booking.save
+    authorize @booking
+    redirect_to events_path
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.event = @event
-    @booing.user = current_user
-    @booking.save
-    authorize @booking
-    redirect_to event_path
+    # @booking = Booking.new(booking_params)
+    # @booking.event = @event
+    # @booking.user = current_user
+    # @booking.save
+    # authorize @booking
+    # redirect_to events_path
   end
 
   def edit
@@ -35,7 +42,7 @@ private
   end
 
   def booking_params
-    user_id = current_user.user_id
-    params.require(:booking).permit(:user_id, :event_id)
+    user_id = current_user.id
+    params.permit(:event_id)
   end
 end
