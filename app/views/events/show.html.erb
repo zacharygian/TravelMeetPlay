@@ -1,7 +1,9 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1>
+  Details about the <%= @event.sport.name %> game on <%= @event.date %>
+</h1>
+<p>This event is organized by: <%= @event.host.email %></p>
 
-<%= @event.sport.name %>
+<p>Would you like to register for this event?</p>
 
-<%= button_to "book", new_event_booking_path(@event),
+<%= button_to "Register", new_event_booking_path(@event),
 class: "btn btn-primary"%>

@@ -1,5 +1,5 @@
 <%= simple_form_for @experience do |f| %>
-<%= f.input :sport_id %>
-<%= f.input :skill_level %>
+<%= f.association :sport %>
+<%= f.input :skill_level, collection: 1..10 %>
 <%= f.submit "add skill level" %>
 <% end %>
