@@ -1,9 +1,17 @@
 <h1>
-  Details about the <%= @event.sport.name %> game on <%= @event.date %>
+  Details about the <%= @event.sport.name %> game on <%= @event.nice_date %>
 </h1>
 <p>This event is organized by: <%= @event.host.first_name %> <%= @event.host.last_name %></p>
+<p> This event will take place in <%= @event.location %>. </p>
+<p> The host is looking for <%= @event.max_players %> players.</p>
+<p> The date set is <%= @event.nice_date %>. </p>
 
-<p>Would you like to register for this event?</p>
 
-<%= button_to "Register", new_event_booking_path(@event),
-class: "btn btn-primary"%>
+<% if @event.host.id == current_user.id %>
+  <p>This is an event you created.</p>
+<% else %>
+  <p>Would you like to register for this event?</p>
+  <%= button_to "Register", new_event_booking_path(@event), class: "btn btn-primary"%>
+<% end %>
+
+

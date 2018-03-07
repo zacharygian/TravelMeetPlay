@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [ :show, :edit, :destroy ]
+  before_action :set_event, only: [ :show, :edit, :destroy, :update, :delete ]
 
   def index
     @events = policy_scope(Event)
@@ -23,8 +23,9 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.host = current_user
     if @event.save
-      redirect_to events_path
+      redirect_to event_path(@event)
     else
       render :new
     end
@@ -37,7 +38,14 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event.update(
+      location: params[:event][:location],
+      date: params[:event][:date],
+      max_players: params[:event][:max_players],
+      # description: params[:event][:description]
+      )
     authorize @event
+    redirect_to event_path
   end
 
   def destroy
