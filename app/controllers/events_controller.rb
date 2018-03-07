@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [ :show, :edit, :destroy, :update, :delete ]
 
   def index
-@events = policy_scope(Event)
+  @events = policy_scope(Event)
     # @events = Event.all
     if params[:search].present?
       sql_query = " \
@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   def dashboard
     @host = current_user
     @events = current_user.events
+    @bookings = current_user.bookings
     authorize @events
   end
 
