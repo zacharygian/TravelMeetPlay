@@ -27,7 +27,7 @@ Experience.create(user_id: user, sport_id: 1, skill_level: 3)
 
 
 Event.create(host_id: 1, sport_id: 6, address: "Meguro", date: 2018-03-11, max_players: 2)
-Event.create(host_id: 2, sport_id: 3, address: "Paris", date: 2018-03-10, max_players: 3)
+Event.create(host_id: 2, sport_id: 3, address: "Gotanda", date: 2018-03-10, max_players: 3)
 Event.create(host_id: 3, sport_id: 5, address: "Tokyo Station", date: 2018-03-12, max_players: 2)
 Event.create(host_id: 4, sport_id: 3, address: "Ginza", date: 2018-03-30, max_players: 5)
 Event.create(host_id: 6, sport_id: 4, address: "Shinagawa", date: 2018-18-12, max_players: 4)
