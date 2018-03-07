@@ -2,7 +2,6 @@
 
 <h2>Experiences in Sports</h2>
 <% @user.experiences.each do |experience| %>
-<p><%= experience.user.email %></p>
 <p><%= experience.sport.name %></p>
 <p><%= experience.skill_level %></p>
 <p><%= link_to "Edit my expertise", edit_experience_path(experience) %></p>
