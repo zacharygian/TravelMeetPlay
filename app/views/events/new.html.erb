@@ -2,7 +2,7 @@
 
 <%= simple_form_for @event do |f| %>
   <%= f.association :sport %>
-  <%= f.input :address %>
+  <%= f.input :address, id: "eventAddress" %>
   <%= f.input :date %>
   <%= f.input :max_players %>
   <%= f.submit "Create event" %>
