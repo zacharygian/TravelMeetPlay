@@ -1,6 +1,13 @@
 <h1>Hi Zach, here are all the events in your area:</h1>
 
 <% @events.each do |event| %>
-  <h5> <strong>Sport:</strong> <%= event.sport.name %> <strong>Location:</strong> <%= event.location %> <strong>Hosted By:</strong> <%= event.host.first_name %> <%= event.host.last_name %> </h5>
+  <h5> <strong>Sport:</strong> <%= event.sport.name %> <strong>Address:</strong> <%= event.address %> <strong>Hosted By:</strong> <%= event.host.first_name %> <%= event.host.last_name %> </h5>
   <%= link_to "See Details", event_path(event) %>
 <% end %>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>">
+</div>

@@ -4,9 +4,17 @@ class EventsController < ApplicationController
   def index
   @events = policy_scope(Event)
     # @events = Event.all
+    @events = policy_scope(Event)
+    @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+    end
+
     if params[:search].present?
       sql_query = " \
-        events.location ILIKE :search \
+        events.address ILIKE :search \
         OR sports.name ILIKE :search \
       "
       @events = Event.joins(:sport).where(sql_query, search: "%#{params[:search]}%")
@@ -49,7 +57,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(
-      location: params[:event][:location],
+      address: params[:event][:address],
       date: params[:event][:date],
       max_players: params[:event][:max_players],
       # description: params[:event][:description]
@@ -71,6 +79,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:location, :date, :max_players, :host_id, :sport_id)
+    params.require(:event).permit(:address, :date, :max_players, :host_id, :sport_id)
   end
 end
