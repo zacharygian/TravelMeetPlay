@@ -3,7 +3,13 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
-    # @events = Event.all
+    @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+    end
+
     if params[:search].present?
       sql_query = " \
         events.address ILIKE :search \
@@ -12,13 +18,6 @@ class EventsController < ApplicationController
       @events = Event.joins(:sport).where(sql_query, search: "%#{params[:search]}%")
     else
        @events = policy_scope(Event)
-    end
-
-    @markers = @events.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude
-      }
     end
   end
 
