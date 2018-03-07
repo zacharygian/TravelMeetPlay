@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_event, only: [:new]
+  before_action :find_event, only: [:show, :new]
 
   def show
   end
