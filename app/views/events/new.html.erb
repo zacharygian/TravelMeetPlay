@@ -1,2 +1,9 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h1>Create a new game!</h1>
+
+<%= simple_form_for @event do |f| %>
+  <%= f.association :sport %>
+  <%= f.input :location %>
+  <%= f.input :date %>
+  <%= f.input :max_players %>
+  <%= f.submit "Create event" %>
+<% end %>
