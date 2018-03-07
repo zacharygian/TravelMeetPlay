@@ -8,4 +8,7 @@ class Event < ApplicationRecord
   def nice_date
     date.strftime("%b %d, %Y") if date
   end
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
