@@ -2,6 +2,7 @@
 <%= cl_image_tag(@user.photo,
       width: 400, height: 300, crop: :fill) %>
 
+<%= link_to "Edit My profile", edit_user_registration_path %>
 <h2>Experiences in Sports</h2>
 <% @user.experiences.each do |experience| %>
 <p><%= experience.sport.name %></p>

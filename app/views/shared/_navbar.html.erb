@@ -4,13 +4,25 @@
     <%#= image_tag "logo_navbar.jpg", height: 50 %>
   <% end %>
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+<!--   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <div class="search-container">
         <form action="/action_page.php">
-          <input type="text" placeholder="What do you want to play?" name="search">
+          <input type="text" placeholder="What do you want to play?" name="text" params=":search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
+    </div> -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+       <div class="search-container">
+      <%= form_tag events_path, method: :get do %>
+      <%= text_field_tag :search,
+        params[:seach],
+        class: "form-control",
+        placeholder: "Find events"
+      %>
+      <%= submit_tag "Find" %>
+    <% end %>
     </div>
+  </div>
 
     <% if user_signed_in? %>
 
