@@ -9,7 +9,11 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+  <%= f.input :first_name%>
+  <%= f.input :last_name %>
+  <%= f.input :age %>
+  <%= f.country_select :country, label: 'Country' %>
+  <%= f.input :biography %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
 
