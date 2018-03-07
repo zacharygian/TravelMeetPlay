@@ -1,4 +1,12 @@
 .banner {
+  background-image: url("background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lander {
   text-align: center;
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
@@ -8,7 +16,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  background-image: url("tmp_banner.jpg");
+  background-image: url("tmp_banner.png");
 }
 
 .right-banner {
