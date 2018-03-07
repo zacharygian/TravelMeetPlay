@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :experiences
+
+  mount_uploader :photo, PhotoUploader
 end
