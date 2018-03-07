@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def dashboard
-    @user = current_user
+    @host = current_user
     @events = current_user.events
     authorize @events
   end
