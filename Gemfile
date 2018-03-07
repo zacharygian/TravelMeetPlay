@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'country_select'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'devise'
