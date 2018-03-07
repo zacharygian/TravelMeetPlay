@@ -1,0 +1,36 @@
+.banner {
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url("tmp_banner.jpg");
+}
+
+.right-banner {
+  text-align: left;
+  flex-basis: 45%;
+  margin-right: 30px;
+  font-family: "roboto", "sans-serif";
+  color: black;
+  h3 {
+    font-size: 60px;
+    font-weight: bolder;
+    opacity: 0.75;
+    margin-bottom: 25px;
+    margin-top: 0px;
+  }
+  p {
+    font-size: 25px;
+    font-weight: normal;
+    opacity: 0.75;
+  }
+}
+
+.upper-side {
+  margin-bottom: 60px;
+}
