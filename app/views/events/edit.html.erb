@@ -1,2 +1,9 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<h1>Edit your <%= @event.sport.name %> game</h1>
+
+
+<%= simple_form_for @event do |f| %>
+  <%= f.input :location %>
+  <%= f.input :date %>
+  <%= f.input :max_players %>
+  <%= f.submit "Edit event" %>
+<% end %>
