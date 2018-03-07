@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="right-banner hidden-xs hidden-sm"">
+    <div class="upper-side">
+      <h3>Highlight your game!</h3>
+      <p>How about playing your sport on the other side of the world? Travel around the globe and meet locals that share your passion!</p>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to "Get started!",  events_path, class: "btn-landing" %>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Get started!"), new_user_session_path, class: "btn-landing" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="landing-sports">
+
+</div>
+
+<script>
+  function scrollWin(x, y) {
+      window.scrollBy(0, 100);
+  }
+  window.onload = scrollWin
+</script>
+
