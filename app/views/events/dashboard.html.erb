@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row all-cards">
+    <h2>Hi <%= @host.first_name %>, here are your events:</h2>
+    <ul>
+    <% @events.each do |event| %>
+    <%= link_to event_path(event) do %>
+      <%= event.sport.name %>
+
+
+      <li><%= link_to "Edit Event", edit_event_path(event) %></li>
+      <li><%= link_to "Delete Event", event_path(event), :method => :delete, data: {:confirm => "Are you sure you want to delete this event?" }%></li>
+          </ul>
+      <% end %>
+    <% end %>
+
+
+  <%= link_to "Create New Event", new_event_url %>
+</div>
+</div>
+
