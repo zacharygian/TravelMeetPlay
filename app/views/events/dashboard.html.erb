@@ -15,7 +15,7 @@
     <% @bookings.each do |booking| %>
     <p>Date: <%= booking.event.nice_date %></p>
     <p>Sport: <%= booking.event.sport.name %></p>
-    <p>Host Name: <%= booking.event.host.first_name %></p>
+    <p>Host Name: <%= booking.event.host.first_name %> <%= booking.event.host.last_name %></p>
     <p>Location: <%= booking.event.address %></p>
     <br>
   <% end %>
