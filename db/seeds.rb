@@ -1,7 +1,7 @@
 
 
 Experience.destroy_all
-Sport.destroy_all
+# Sport.destroy_all
 Event.destroy_all
 User.destroy_all
 
