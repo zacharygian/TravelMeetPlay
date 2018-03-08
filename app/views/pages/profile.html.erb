@@ -6,10 +6,10 @@
 <p>Age:
 <%=  @user.age %></p>
 <p>Country:
- <% if @user.country %>
-<%  user_country = @user.country %>
-<% country = ISO3166::Country[user_country] %>
-<%=  country.translations[I18n.locale.to_s] || country.name %></p>
+<% if @user.country %>
+<%=  @user.country_name %>
+
+
 <% end %>
 
 

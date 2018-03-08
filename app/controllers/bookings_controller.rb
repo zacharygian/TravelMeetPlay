@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
     @booking.status = "approved"
     @booking.save
     authorize @booking
+    flash[:notice] = "You approved #{@booking.user.first_name} to join the event"
     redirect_to dashboard_path
   end
 

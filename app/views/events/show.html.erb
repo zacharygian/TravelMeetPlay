@@ -6,11 +6,26 @@
 <p> The host is looking for <%= @event.max_players %> players.</p>
 <p> The date set is <%= @event.nice_date %>. </p>
 
-    <% @event.bookings.each do |booking| %>
-    <p><%= booking.user.first_name %> has registered </p>
-   <p> Booking status: <%= booking.status %></p>
+<h3>Registered Users</h3>
+  <% @event.bookings.each do |booking| %>
+    <%  if booking.user.first_name %>
+      <p><%= booking.user.first_name %> has registered </p>
+      <% else %>
+      <p>Unkown user has registered</p>
+    <% end %>
+    <% if booking.user.age  %>
+      <p>Age: <%= booking.user.age %></p>
+    <% end %>
+    <% if booking.user.country_name %>
+      <p><%= booking.user.first_name %> is from <%= booking.user.country_name %>  </p>
+    <% end %>
+    <% if booking.user.biography %>
+    <p>Biography:<%= booking.user.biography %> </p>
+    <% end %>
+    <p> Booking status: <%= booking.status %></p>
+    <br>
+  <% end %>
 
-      <% end %>
 
 <% if @event.host.id == current_user.id %>
   <p>This is an event you created.</p>
