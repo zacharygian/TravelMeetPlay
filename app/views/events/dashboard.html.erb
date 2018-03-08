@@ -3,12 +3,22 @@
     <h2>Hi <%= @host.first_name %>, here are your events that you've created:</h2>
     <ul>
     <% @events.each do |event| %>
-    <%= link_to event_path(event) do %>
+
      <p> <%= event.sport.name %> at <%= event.nice_date %> </p>
+      <% event.bookings.each do |booking| %>
+      <p><%= booking.user.first_name %> has registered </p>
+     <p> Booking status: <%= booking.status %></p>
+
+<%= link_to "Approve", event_booking_path(event, booking), method: :patch, class: "btn btn-primary" %>
+
+     <% end %>
+
+  <br>
+      <%= link_to "See Details", event_path(event) %>
       <li><%= link_to "Edit Event", edit_event_path(event) %></li>
       <li><%= link_to "Delete Event", event_path(event), :method => :delete, data: {:confirm => "Are you sure you want to delete this event?" }%></li>
           </ul>
-      <% end %>
+
       <% end %>
 
   <h2>Your Bookings:</h2>
@@ -17,6 +27,7 @@
     <p>Sport: <%= booking.event.sport.name %></p>
     <p>Host Name: <%= booking.event.host.first_name %></p>
     <p>Location: <%= booking.event.address %></p>
+    <p>Status: <%= booking.status %></p>
     <br>
   <% end %>
 <br>
