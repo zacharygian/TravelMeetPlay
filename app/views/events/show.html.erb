@@ -7,6 +7,13 @@
 <p> The date set is <%= @event.nice_date %>. </p>
 <p> There are <%= @event.spots_left %> spots left.</p>
 
+    <% @event.bookings.each do |booking| %>
+    <p><%= booking.user.first_name %> has registered </p>
+   <p> Booking status: <%= booking.status %></p>
+
+      <% end %>
+
+
 <% if @event.host.id == current_user.id %>
   <p>This is an event you created.</p>
 <% elsif @event.spots_left > 0 %>

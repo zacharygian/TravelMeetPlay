@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     @events = current_user.events
     @bookings = current_user.bookings
     authorize @events
+    authorize @bookings
   end
 
   def new

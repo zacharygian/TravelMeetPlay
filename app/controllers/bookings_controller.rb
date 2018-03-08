@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :find_event, only: [ :show, :new, :create ]
 
+
   def show
   end
 
@@ -23,10 +24,16 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.status = "approved"
+    @booking.save
+    authorize @booking
+    redirect_to dashboard_path
   end
 
   def destroy
   end
+
 
 private
 
@@ -40,6 +47,6 @@ private
 
   def booking_params
     user_id = current_user.id
-    params.permit(:event_id)
+    params.permit(:event_id, :status)
   end
 end
