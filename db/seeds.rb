@@ -1,7 +1,7 @@
 
 
 Experience.destroy_all
-# Sport.destroy_all
+Sport.destroy_all
 Event.destroy_all
 User.destroy_all
 
@@ -12,7 +12,22 @@ Sport.create(name: 'Running')
 Sport.create(name: 'Frisbee')
 Sport.create(name: 'Rugby')
 Sport.create(name: 'Tennis')
-Sport.create(name: 'Table Tennis')
+Sport.create(name: 'Badmington')
+Sport.create(name: 'Baseball')
+Sport.create(name: 'Bowling')
+Sport.create(name: 'Boxing')
+Sport.create(name: 'Cycling')
+Sport.create(name: 'Golf')
+Sport.create(name: 'Gym')
+Sport.create(name: 'Hockey')
+Sport.create(name: 'Kayaking')
+Sport.create(name: 'Pool')
+Sport.create(name: 'Rollerblading')
+Sport.create(name: 'Pingpong')
+Sport.create(name: 'Soccer')
+Sport.create(name: 'Surfing')
+Sport.create(name: 'Swimming')
+Sport.create(name: 'Volleyball')
 
 
 User.create(first_name: 'Bob', last_name: 'Parker', age: 18, email: 'bob@example.com', password: "password", biography: "Lorem ipsum dolor amet tumblr thundercats edison bulb keytar swag street art banjo. Godard la croix air plant, cold-pressed venmo 8-bit freegan gastropub. Taiyaki waistcoat chambray viral, flexitarian synth crucifix polaroid. 90's organic bitters taiyaki umami pitchfork salvia.")
@@ -27,7 +42,7 @@ Experience.create(user_id: user, sport_id: 1, skill_level: 3)
 
 
 Event.create(host_id: 1, sport_id: 6, address: "Meguro", date: 2018-03-11, max_players: 2)
-Event.create(host_id: 2, sport_id: 3, address: "Paris", date: 2018-03-10, max_players: 3)
+Event.create(host_id: 2, sport_id: 3, address: "Gotanda", date: 2018-03-10, max_players: 3)
 Event.create(host_id: 3, sport_id: 5, address: "Tokyo Station", date: 2018-03-12, max_players: 2)
 Event.create(host_id: 4, sport_id: 3, address: "Ginza", date: 2018-03-30, max_players: 5)
 Event.create(host_id: 6, sport_id: 4, address: "Shinagawa", date: 2018-18-12, max_players: 4)

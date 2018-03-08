@@ -1,4 +1,4 @@
-<h1><%= @user.first_name %>'s profile</h1>
+<h1>Your profile</h1>
 <%= cl_image_tag(@user.photo,
       width: 400, height: 300, crop: :fill) %>
 <p>Name:
@@ -6,13 +6,17 @@
 <p>Age:
 <%=  @user.age %></p>
 <p>Country:
+ <% if @user.country %>
 <%  user_country = @user.country %>
 <% country = ISO3166::Country[user_country] %>
 <%=  country.translations[I18n.locale.to_s] || country.name %></p>
+<% end %>
+
 
 
 <br>
-<%=  @user.biography %>
+<p>Biography:
+<%=  @user.biography %></p>
 <%= link_to "Edit My profile", edit_user_registration_path %>
 <h2>Experiences in Sports</h2>
 <% @user.experiences.each do |experience| %>
