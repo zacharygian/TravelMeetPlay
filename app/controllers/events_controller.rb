@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @user = current_user
-  @events = policy_scope(Event)
+    @events = policy_scope(Event)
     # @events = Event.all
     @events = policy_scope(Event)
     @markers = @events.map do |event|
@@ -44,12 +44,12 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.host = current_user
+    @event.spots_left = @event.max_players
     if @event.save
       redirect_to event_path(@event)
     else
       render :new
     end
-
     authorize @event
   end
 

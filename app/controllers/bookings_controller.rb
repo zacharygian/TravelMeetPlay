@@ -1,25 +1,23 @@
 class BookingsController < ApplicationController
-  before_action :find_event, only: [:show, :new, :update]
+  before_action :find_event, only: [ :show, :new, :create ]
+
 
   def show
   end
 
   def new
+  end
+
+  def create
     @booking = Booking.new(booking_params)
     @booking.event = @event
     @booking.user = current_user
     @booking.save
+    @event.spots_left = @event.spots_left - 1
+    @event.save
     authorize @booking
+    flash[:notice] = "Congratulations, you successfully joined the game!"
     redirect_to events_path
-  end
-
-  def create
-    # @booking = Booking.new(booking_params)
-    # @booking.event = @event
-    # @booking.user = current_user
-    # @booking.save
-    # authorize @booking
-    # redirect_to events_path
   end
 
   def edit

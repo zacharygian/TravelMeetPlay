@@ -5,6 +5,7 @@
 <p> This event will take place in <%= @event.address %>. </p>
 <p> The host is looking for <%= @event.max_players %> players.</p>
 <p> The date set is <%= @event.nice_date %>. </p>
+<p> There are <%= @event.spots_left %> spots left.</p>
 
     <% @event.bookings.each do |booking| %>
     <p><%= booking.user.first_name %> has registered </p>
@@ -12,10 +13,13 @@
 
       <% end %>
 
+
 <% if @event.host.id == current_user.id %>
   <p>This is an event you created.</p>
-<% else %>
+<% elsif @event.spots_left > 0 %>
   <p>Would you like to register for this event?</p>
-  <%= link_to "Register", new_event_booking_path(@event), class: "btn btn-primary"%>
+  <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
+<% elsif  %>
+  <p>This event is currently full. We will notify you if spots become available.</p>
 <% end %>
 
