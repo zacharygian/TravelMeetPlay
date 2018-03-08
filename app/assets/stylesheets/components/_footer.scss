@@ -1,0 +1,37 @@
+.footermain {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 10px;
+  height: 100px;
+}
+
+#footer-back {
+    background: transparent !important;
+}
+
+.footlinks {
+  color: black;
+  margin: 5px;
+}
+
+.footlinks:hover {
+  color: #f15a23;
+}
+
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -100px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 100px;
+}
