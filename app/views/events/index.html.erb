@@ -1,13 +1,34 @@
-<h1>Hi Zach, here are all the events in your area:</h1>
-
-<% @events.each do |event| %>
-  <h5> <strong>Sport:</strong> <%= event.sport.name %> <strong>Address:</strong> <%= event.address %> <strong>Hosted By:</strong> <%= event.host.first_name %> <%= event.host.last_name %> </h5>
-  <%= link_to "See Details", event_path(event) %>
-<% end %>
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>">
+<div class="container">
+  <div class="home">
+    <div class="row all-cards">
+      <h2>Hey <%= @user.first_name %>! Here's what's happening around you:</h2>
+      <% @events.each do |event| %>
+        <%= link_to event_path(event) do %>
+        <div class="col-xs-12 col-sm-4 col-lg-3">
+          <div class="card">
+            <div>
+              <%= image_tag ("#{event.sport.name.downcase}.png"), class: "card-photo" %>
+            </div>
+            <div class="booking-content">
+              <h4><%= event.sport.name %></h4>
+              <p>Logo</i><%= event.address %></p>
+              <p>By <%= event.host.first_name %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div
+      id="map"
+      style="width: 80%;
+      height: 100vh;
+      margin: 10px;"
+      data-markers="<%= @markers.to_json %>">
+    </div>
+  </div>
 </div>
+
+<%= link_to "Back", events_path %>
+
+
