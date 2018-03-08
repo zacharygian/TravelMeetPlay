@@ -13,8 +13,10 @@
 <% end %>
 
 
+
 <br>
-<%=  @user.biography %>
+<p>Biography:
+<%=  @user.biography %></p>
 <%= link_to "Edit My profile", edit_user_registration_path %>
 <h2>Experiences in Sports</h2>
 <% @user.experiences.each do |experience| %>
