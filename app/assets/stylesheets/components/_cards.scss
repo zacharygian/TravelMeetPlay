@@ -1,26 +1,29 @@
 .card {
+  border-bottom: 2px solid #eff2f1;
+  border-top: 2px solid #eff2f1;
   position: relative;
   font-size: 16px;
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 240px;
-  height: 265px;
+  max-width: 360px;
+  height: 280px;
   padding: 5px 5px;
   color: black;
   background-color: white;
   position: relative;
-  border-radius: 2px;
   margin: 10px auto;
   h4 {
-    text-align: left;
+    text-align: center;
   }
   p {
     text-align: center;
   }
   &:hover{
     text-decoration: none;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-bottom: 0 solid #ffffff;
+    border-top: 0 solid #ffffff;
   }
 }
 
