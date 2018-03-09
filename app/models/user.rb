@@ -11,6 +11,8 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_many :sports, through: :experiences
 
+  validates :first_name, presence: true, on: :create
+
   def country_name
     if country
     country_string = ISO3166::Country[country]
