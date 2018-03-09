@@ -1,0 +1,8 @@
+<%= image_tag ("#{event.sport.name.downcase}.png"), class: "map-logo" %>
+
+<%= link_to event_path(event) do %>
+  <%= event.sport.name %>
+  <%= event.nice_date %></p>
+<% end %>
+
+<p>There are <%= event.spots_left %> spots left</p>
