@@ -15,8 +15,8 @@ class BookingsController < ApplicationController
     @booking.save
     @event.save
     authorize @booking
-    flash[:notice] = "Congratulations, you successfully joined the game!"
-    redirect_to events_path
+    flash[:notice] = "Congratulations, you've sent a request to the event owner"
+    redirect_to dashboard_path
   end
 
   def edit
