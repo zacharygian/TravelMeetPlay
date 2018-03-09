@@ -1,31 +1,42 @@
-<h1>Your profile</h1>
-<%= cl_image_tag(@user.photo,
-      width: 400, height: 300, crop: :fill) %>
-<p>Name:
-<%=  @user.first_name %></p>
-<p>Age:
-<%=  @user.age %></p>
-<p>Country:
-<% if @user.country %>
-<%=  @user.country_name %>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <div class="profile-card">
+      <div class="profile-content">
+      <h1>Your profile</h1>
+        <% if @user.photo.present? %>
+          <%= cl_image_tag(@user.photo, width: 300, height: 300, crop: :fill) %>
+        <% end %>
+        <p>Name: <%=  @user.first_name %></p>
+        <p>Age: <%=  @user.age %></p>
+        <p>Country:
+        <% if @user.country %>
+        <%=  @user.country_name %>
+        <% end %>
+      <br>
+      <p>Biography:
+      <%=  @user.biography %></p>
+      <%= link_to "Edit My profile", edit_user_registration_path %>
+  </div>
+</div>
 
-
-<% end %>
-
-
-
-<br>
-<p>Biography:
-<%=  @user.biography %></p>
-<%= link_to "Edit My profile", edit_user_registration_path %>
 <h2>Experiences in Sports</h2>
-<% @user.experiences.each do |experience| %>
-<p><%= experience.sport.name %></p>
-<p><%= experience.skill_level %></p>
-<p><%= link_to "Edit my expertise", edit_experience_path(experience) %></p>
-<p><%= link_to "Delete", experience_path(experience), :method => :delete, data: {:confirm => "You sure?" } %></p>
-<% end %>
-
-
-
+<div class="experience_card">
+    <% @user.experiences.each do |experience| %>
+    <div class="sport_name">
+      <p><%= experience.sport.name %></p>
+    </div>
+    <div class="skill_level">
+      <p><%= experience.skill_level %></p>
+    </div>
+    <p><%= link_to "Edit my expertise", edit_experience_path(experience) %></p>
+    <p><%= link_to "Delete", experience_path(experience), :method => :delete, data: {:confirm => "You sure?" } %></p>
+    <% end %>
+</div>
 <%= link_to "Add an expertise", new_experience_path %>
+
+  </div>
+</div>
+
+
+
+
