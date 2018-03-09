@@ -11,4 +11,12 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def spots_left
+    max_players - booking_ids.length
+  end
+
+  def is_user_registered?(user)
+    !bookings.where(user_id: user.id).blank?
+  end
 end
