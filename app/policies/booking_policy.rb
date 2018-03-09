@@ -20,10 +20,13 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     true
   end
+  
+  def update_denial?
+    true
+  end
 
   def dashboard?
     true
   end
-
 
 end
