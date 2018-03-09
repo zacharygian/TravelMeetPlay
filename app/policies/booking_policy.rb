@@ -17,6 +17,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def update_denial?
+    true
+  end
+
   def dashboard?
     true
   end
