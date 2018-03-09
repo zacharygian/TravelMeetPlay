@@ -70,8 +70,8 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path
     authorize @event
+    redirect_to dashboard_path
   end
 
   private
