@@ -45,6 +45,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.host = current_user
+    @event.spots_left = @event.max_players
     if @event.save
       redirect_to dashboard_path
     else
