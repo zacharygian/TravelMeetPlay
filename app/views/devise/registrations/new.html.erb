@@ -9,6 +9,7 @@
 
       <div class="login-block">
             <h1>Sign up</h1>
+            <%= f.input :first_name, required: true, autofocus: true %>
                <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
