@@ -11,4 +11,11 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_many :sports, through: :experiences
 
+  def country_name
+    if country
+    country_string = ISO3166::Country[country]
+    country_string.translations[I18n.locale.to_s] || country.name
+    end
+  end
+
 end
