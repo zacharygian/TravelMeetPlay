@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     @event.host = current_user
     @event.spots_left = @event.max_players
     if @event.save
-      redirect_to event_path(@event)
+      redirect_to dashboard_path
     else
       render :new
     end
