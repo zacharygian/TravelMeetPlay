@@ -31,3 +31,23 @@
     opacity: 1;
   }
 }
+
+.map-button {
+  width: 80px;
+  height: 28px;
+  font-size: 12px;
+  border-radius: 3px;
+  padding: 1px 3px;
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  color: white !important;
+  background-color: #f15a23;
+  opacity: 0.8;
+  &:hover{
+  text-decoration: none !important;
+  opacity: 1;
+  }
+}
+
