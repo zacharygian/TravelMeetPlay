@@ -1,8 +1,8 @@
 
 
 Experience.destroy_all
-# Sport.destroy_all
 Event.destroy_all
+Sport.destroy_all
 User.destroy_all
 
 Sport.create(name: 'Basketball')
@@ -29,6 +29,7 @@ Sport.create(name: 'Surfing')
 Sport.create(name: 'Swimming')
 Sport.create(name: 'Volleyball')
 
+puts "created #{Sport.all.count} sports"
 
 User.create(first_name: 'Bob', last_name: 'Parker', age: 18, email: 'bob@example.com', password: "password", biography: "Lorem ipsum dolor amet tumblr thundercats edison bulb keytar swag street art banjo. Godard la croix air plant, cold-pressed venmo 8-bit freegan gastropub. Taiyaki waistcoat chambray viral, flexitarian synth crucifix polaroid. 90's organic bitters taiyaki umami pitchfork salvia.")
 User.create(first_name: 'Esti', last_name: 'Palacio', age: 23, email: 'esti@example.com', password: "password", biography: "Lorem ipsum dolor amet tumblr thundercats edison bulb keytar swag street art banjo. Godard la croix air plant, cold-pressed venmo 8-bit freegan gastropub. Taiyaki waistcoat chambray viral, flexitarian synth crucifix polaroid. 90's organic bitters taiyaki umami pitchfork salvia.")
@@ -37,15 +38,23 @@ User.create(first_name: 'Jane', last_name: 'Doe', age: 43, email: 'jane@example.
 User.create(first_name: 'Milly', last_name: 'Brown', age: 32, email: 'milly@example.com', password: "password", biography: "Lorem ipsum dolor amet tumblr thundercats edison bulb keytar swag street art banjo. Godard la croix air plant, cold-pressed venmo 8-bit freegan gastropub. Taiyaki waistcoat chambray viral, flexitarian synth crucifix polaroid. 90's organic bitters taiyaki umami pitchfork salvia.")
 User.create(first_name: 'James', last_name: 'Brown', age: 19, email: 'james@example.com', password: "password", biography: "Lorem ipsum dolor amet tumblr thundercats edison bulb keytar swag street art banjo. Godard la croix air plant, cold-pressed venmo 8-bit freegan gastropub. Taiyaki waistcoat chambray viral, flexitarian synth crucifix polaroid. 90's organic bitters taiyaki umami pitchfork salvia.")
 
+puts "created #{User.all.count} users"
+
+
 user = User.first
-Experience.create(user_id: user, sport_id: 1, skill_level: 3)
+Experience.create(user_id: user.id, sport_id: Sport.first.id, skill_level: 3)
+
+puts "created #{Experience.all.count} experiences"
 
 
-Event.create(host_id: 1, sport_id: 6, address: "Meguro", date: 2018-03-11, max_players: 2, spots_left: 2)
-Event.create(host_id: 2, sport_id: 3, address: "Gotanda", date: 2018-03-10, max_players: 3, spots_left: 3)
-Event.create(host_id: 3, sport_id: 5, address: "Tokyo Station", date: 2018-03-12, max_players: 2, spots_left: 2)
-Event.create(host_id: 4, sport_id: 3, address: "Ginza", date: 2018-03-30, max_players: 5, spots_left: 5)
-Event.create(host_id: 6, sport_id: 4, address: "Shinagawa", date: 2018-18-12, max_players: 4, spots_left: 4)
+# host_id = User.all.sample.id
+# sport_id = Sport.all.sample.id
 
-puts "created the seeds!"
+Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Meguro", date: Date.today + rand(1..10), max_players: 2, spots_left: 2)
+Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3)
+Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2)
+Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5)
+Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4)
+
+puts "created #{Event.all.count} events"
 
