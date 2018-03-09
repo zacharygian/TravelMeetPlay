@@ -28,6 +28,7 @@
     <p>Host Name: <%= booking.event.host.first_name %> <%= booking.event.host.last_name %></p>
     <p>Location: <%= booking.event.address %></p>
     <p>Status: <%= booking.status %></p>
+    <%= button_to "Cancel booking", event_booking_path(booking.event, booking), :method => :delete, data: {:confirm => "Are you sure you want to cancel your booking for this event?" }%>
     <br>
   <% end %>
 <br>
