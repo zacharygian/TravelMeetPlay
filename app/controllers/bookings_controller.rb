@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_event, only: [ :show, :new, :create ]
+  before_action :find_event, only: [ :show, :new, :create, :destroy ]
 
 
   def show
@@ -48,6 +48,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize @booking
+    redirect_to events_path
   end
 
 
