@@ -10,6 +10,7 @@
      <p> Booking status: <%= booking.status %></p>
 
 <%= link_to "Approve", event_booking_path(event, booking), method: :patch, class: "btn btn-primary" %>
+<%= link_to "Denial", event_booking_denial_path(event, booking), method: :patch, class: "btn btn-danger" %>
 
      <% end %>
 
