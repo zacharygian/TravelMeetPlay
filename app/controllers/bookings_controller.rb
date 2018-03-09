@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking.event = @event
     @booking.user = current_user
     @booking.save
-    @event.spots_left = @event.spots_left - 1
     @event.save
     authorize @booking
     flash[:notice] = "Congratulations, you successfully joined the game!"
