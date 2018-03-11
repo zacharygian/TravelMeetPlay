@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     @host = current_user
     @events = current_user.events
     @bookings = current_user.bookings
+    @reviews = current_user.reviews
     authorize @events
     authorize @bookings
   end
