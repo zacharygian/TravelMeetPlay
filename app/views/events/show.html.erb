@@ -64,7 +64,10 @@
 <% elsif @event.spots_left > 0 && !@event.is_user_registered?(current_user) %>
   <p>Would you like to register for this event?</p>
   <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
-<% elsif @event.is_user_registered?(current_user) %>
+<% elsif @event.booking_pending?(current_user) %>
+  <p>Your registration is currently pending. The host is setting up the event and will get back to you shortly.</p>
+  <%= raise %>
+<% elsif @event.booking_accepted?(current_user) %>
   <p> You are already participating in this event.</p>
 <% else  %>
   <p>This event is currently full. We will notify you if spots become available.</p>

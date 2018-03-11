@@ -19,4 +19,12 @@ class Event < ApplicationRecord
   def is_user_registered?(user)
     !bookings.where(user_id: user.id).blank?
   end
+
+  def booking_pending?(user)
+    bookings.where(user_id: user.id && status = "pending")
+  end
+
+  def booking_accepted?(user)
+    bookings.where(user_id: user.id && status = "accepted")
+  end
 end
