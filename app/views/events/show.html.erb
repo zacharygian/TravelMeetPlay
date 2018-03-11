@@ -1,6 +1,36 @@
-<h1>
-  Details about the <%= @event.sport.name %> game on <%= @event.nice_date %>
-</h1>
+<div class="container-fluid">
+  <div class="row boxer">
+    <div class="col-xs-6">
+      <h4>A session of <strong><%= @event.sport.name %></strong> will be held on <strong><%= @event.nice_date %></strong>, hosted by <strong><%= @event.host.first_name %></strong> <strong><%= @event.host.last_name %> at <%= @event.address %></strong></h4>
+      <h4><strong><%= @event.host.first_name %></strong> has established a maximum of <strong><%= @event.max_players %> players </strong> and there are <strong><%= @event.spots_left %></strong> spots left. </h4>
+    </div>
+    <div class="col-xs-6">
+      <h3>Registered players: </h3>
+      <% if @event.bookings.blank? %>
+        <h4>There are no players registered for this event yet, bet the first one to do so by clicking the button below: </h4>
+        <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
+      <% else %>
+        <% @event.bookings.each do |booking| %>
+          <%  if booking.user.first_name %>
+            <p><%= image_tag ("#{@event.sport.name.downcase}.png"), class: "event-logo" %> <%= booking.user.first_name %>
+              <% if booking.user.country_name %>
+              from <%= booking.user.country_name %></p>
+            </p>
+              <% end %>
+          <% else %>
+            <p>Unkown user has registered</p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<h4>
+  <%= @event.sport.name %> on <%= @event.nice_date %>
+</h4>
 <p>This event is organized by: <%= @event.host.first_name %> <%= @event.host.last_name %></p>
 <p> This event will take place in <%= @event.address %>. </p>
 <p> The host is looking for <%= @event.max_players %> players.</p>
@@ -40,6 +70,4 @@
   <p>This event is currently full. We will notify you if spots become available.</p>
 <% end %>
 
-
-
-
+<%= link_to "Back", events_path %>
