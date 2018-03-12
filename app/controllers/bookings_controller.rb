@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
 
   def update_denial
     @booking = Booking.find(params[:booking_id])
-    @booking.status = "denied"
+    @booking.status = "rejected"
       if @booking.event.spots_left
          @booking.event.spots_left += 1
       else
@@ -43,7 +43,7 @@ class BookingsController < ApplicationController
     @booking.save
 
     authorize @booking
-    flash[:alert] = "You denied #{@booking.user.first_name} to join the event"
+    flash[:alert] = "You rejected #{@booking.user.first_name} to join the event"
     redirect_to dashboard_path
   end
 

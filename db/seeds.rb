@@ -50,7 +50,7 @@ puts "created #{Experience.all.count} experiences"
 # host_id = User.all.sample.id
 # sport_id = Sport.all.sample.id
 
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Meguro", date: Date.today + rand(1..10), max_players: 2, spots_left: 2)
+Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Meguro", date: Date.today - 3, max_players: 2, spots_left: 2)
 Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3)
 Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2)
 Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5)

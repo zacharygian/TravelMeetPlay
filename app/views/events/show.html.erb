@@ -58,17 +58,19 @@
   <% end %>
 
 
-
-<% if @event.host.id == current_user.id %>
+<% if @event.date < Date.today %>
+  <p> This event has already occured.</p>
+<% elsif @event.host.id == current_user.id %>
   <p>This is an event you created.</p>
 <% elsif @event.spots_left > 0 && !@event.is_user_registered?(current_user) %>
   <p>Would you like to register for this event?</p>
   <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
 <% elsif @event.booking_pending?(current_user) %>
   <p>Your registration is currently pending. The host is setting up the event and will get back to you shortly.</p>
-  <%= raise %>
-<% elsif @event.booking_accepted?(current_user) %>
-  <p> You are already participating in this event.</p>
+<% elsif @event.booking_approved?(current_user) %>
+  <p> Your booking has been approved! You will be participating in this event.</p>
+<% elsif @event.booking_rejected?(current_user) %>
+  <p> Unfortunately, your booking has been rejected... We invite you to find another event in your area. </p>
 <% else  %>
   <p>This event is currently full. We will notify you if spots become available.</p>
 <% end %>
