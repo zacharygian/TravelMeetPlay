@@ -64,6 +64,7 @@ class EventsController < ApplicationController
       address: params[:event][:address],
       date: params[:event][:date],
       max_players: params[:event][:max_players],
+      price: params[:event][:price],
       # description: params[:event][:description]
       )
     authorize @event
@@ -83,6 +84,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:address, :date, :max_players, :host_id, :sport_id)
+    params.require(:event).permit(:address, :date, :max_players, :host_id, :sport_id, :price)
   end
 end

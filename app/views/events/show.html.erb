@@ -36,6 +36,7 @@
 <p> The host is looking for <%= @event.max_players %> players.</p>
 <p> The date set is <%= @event.nice_date %>. </p>
 <p> There are <%= @event.spots_left %> spots left.</p>
+<p> Participant fee is <%=  humanized_money_with_symbol(@event.price) %>.</p>
 
 <h3>Registered Users</h3>
   <% @event.bookings.each do |booking| %>
@@ -64,6 +65,10 @@
 <% elsif @event.spots_left > 0 && !@event.is_user_registered?(current_user) %>
   <p>Would you like to register for this event?</p>
   <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
+  <%= form_tag event_orders_path(@event) do %>
+  <%= hidden_field_tag 'event_id', @event.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
 <% elsif @event.is_user_registered?(current_user) %>
   <p> You are already participating in this event.</p>
 <% else  %>
