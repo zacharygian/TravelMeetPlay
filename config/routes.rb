@@ -7,13 +7,12 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :bookings, except: [ :index ] do
+    resources :payments, only: [:new, :create]
     get '/denial', to: 'bookings#update_denial'
     patch '/denial', to: 'bookings#update_denial'
      end
     resources :reviews, only: [ :show, :new, :create, :destroy ]
-    resources :orders, only: [:show, :create] do
-      resources :payments, only: [:new, :create]
-    end
+
   end
 
   get '/profile', to: 'pages#profile'

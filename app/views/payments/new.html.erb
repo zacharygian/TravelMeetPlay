@@ -1,8 +1,8 @@
-<h1>Pay Participant fee <%= @order.event_sku %></h1>
-<%= form_tag event_order_payments_path(@order) do %>
+<h1>Pay Participant fee <%= @booking.event_sku %></h1>
+<%= form_tag event_booking_payments_path(@booking) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
     </label>
   </article>
 
@@ -10,8 +10,9 @@
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-name="My Event"
     data-email="<%= current_user.email %>"
-    data-description="Event <%= @order.event_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
+    data-description="Event <%= @booking.event_sku %>"
+    data-amount="<%= @booking.amount_cents %>"
+    data-currency="<%= @booking.amount.currency %>"></script>
 
 <% end %>
+
