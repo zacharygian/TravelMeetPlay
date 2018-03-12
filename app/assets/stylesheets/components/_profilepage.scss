@@ -1,7 +1,47 @@
-.profile-card img {
-  border-radius: 50%;
-}
-
 .profile-card {
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.expertise-level {
+  color: #26c9c4;
+  margin: 0px 1px;
+}
+
+.expertise-total {
+  color: #99a1a8;
+  margin: 0px 1px;
+}
+
+.profile-picture {
+  width: 170px;
+  height: auto;
+  border-radius: 50%;
+  border-color: #eff2f1;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+}
+
+.profile-sport {
+  width: 25px;
+  height: auto;
+}
+
+.experience-card {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sport-name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sport-card {
+  border-bottom-style: solid;
+  border-color: #eff2f1;
+  border-width: 2px;
 }

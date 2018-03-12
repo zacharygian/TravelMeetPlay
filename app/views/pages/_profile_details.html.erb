@@ -1,0 +1,20 @@
+<div class="col-lg-6 profile-card">
+  <div class="profile-content">
+    <% if @user.photo.present? %>
+      <%= cl_image_tag (@user.photo), class: "profile-picture" %>
+    <% end %>
+    <h4><i class="far fa-user"></i>  <%=  @user.first_name %> <%=  @user.last_name %></h4>
+    <h4><%=  @user.age %> years old</h4>
+    <h4><i class="far fa-compass"></i></i>
+      <% if @user.country %>
+        <%=  @user.country_name %>
+      <% end %>
+    </h4>
+    <br>
+    <h4>About me</h4>
+    <p><%= @user.biography %></p>
+    <%= link_to edit_user_registration_path do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+  </div>
+</div>
