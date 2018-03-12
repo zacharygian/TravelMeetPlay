@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180312015959) do
     t.float "longitude"
     t.integer "spots_left"
     t.integer "price_cents", default: 0, null: false
+    t.string "sku"
     t.index ["host_id"], name: "index_events_on_host_id"
     t.index ["sport_id"], name: "index_events_on_sport_id"
   end

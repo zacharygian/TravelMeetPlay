@@ -28,11 +28,12 @@
       </div>
     </div>
     <div class="col-xs-6">
-      <h3>Registered players: </h3>
-      <% if @event.bookings.blank? %>
+      <h3>Registered players </h3>
+      <% if @event.bookings.where(status: "approved").blank? %>
         <p>There are no players registered for this event yet.</p>
       <% else %>
         <% @event.bookings.each do |booking| %>
+        <% if @event.booking_approved?(booking.user) %>
           <%  if booking.user.first_name %>
             <p><%= image_tag ("#{@event.sport.name.downcase}.png"), class: "event-logo" %> <%= booking.user.first_name %>
               <% if booking.user.country_name %>
@@ -41,12 +42,13 @@
               <% end %>
           <% end %>
         <% end  %>
+        <% end  %>
       <% end %>
       <% if @event.date < Date.today %>
         <p> This event has already occured.</p>
       <% elsif @event.host.id == current_user.id %>
         <p>This is an event you created.</p>
-      <% elsif @event.spots_left == @event.max_players %>
+      <% elsif @event.bookings.blank? %>
         <p>Be the first one to do so below:</p>
         <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
         <%= form_tag event_orders_path(@event) do %>
