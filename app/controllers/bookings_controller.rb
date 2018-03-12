@@ -12,10 +12,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.event = @event
     @booking.user = current_user
+    @booking.event_sku = @event.sku
+    @booking.amount_cents = @event.price
     @booking.save
-    authorize @booking
     flash[:notice] = "Congratulations, you've sent a request to the event owner"
-    redirect_to dashboard_path
+    redirect_to new_event_booking_payment_path(@event, @booking)
+    authorize @booking
   end
 
   def edit
