@@ -47,6 +47,10 @@
       <% elsif @event.spots_left > 0 && !@event.is_user_registered?(current_user) %>
         <p>There are no players registed yet, be the first one to do so below:</p>
         <%= button_to "Register", event_bookings_url(@event), class: "btn btn-primary"%>
+        <%= form_tag event_orders_path(@event) do %>
+          <%= hidden_field_tag 'event_id', @event.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+        <% end %>
       <% elsif @event.is_user_registered?(current_user) %>
         <p> You are already participating in this event.</p>
       <% else  %>
@@ -57,4 +61,3 @@
 
 <%= link_to "Back", events_path, class: "btn btn-primary" %>
 </div>
-

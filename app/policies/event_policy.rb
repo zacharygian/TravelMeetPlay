@@ -26,6 +26,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    current_user == user
+    true
   end
 end
