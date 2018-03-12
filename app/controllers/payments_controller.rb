@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
 
   def create
     authorize @booking
+    redirect_to dashboard_path
   end
 
 private
