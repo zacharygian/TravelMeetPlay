@@ -6,5 +6,29 @@
 .boxer {
   border-style: solid;
   border-color: #eff2f1;
-  border-width: 4px;
+  margin: 10px 20px;
+}
+
+.event-main-images {
+  width: 65px;
+  height: auto;
+  border-color: #eff2f1;
+}
+
+.event-host {
+  border-radius: 50%;
+  width: 70px;
+  height: auto;
+  border-style: solid;
+  border-color: #eff2f1;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4)
+}
+
+.spots {
+  color: #26c9c4;
+}
+
+.spots-taken {
+  color: #696773;
 }
