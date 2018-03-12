@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308064128) do
+ActiveRecord::Schema.define(version: 20180312003729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20180308064128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "pending"
+    t.string "sku"
+    t.integer "price_cents", default: 0, null: false
     t.index ["event_id"], name: "index_bookings_on_event_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180308064128) do
     t.float "latitude"
     t.float "longitude"
     t.integer "spots_left"
+    t.integer "price_cents", default: 0, null: false
     t.index ["host_id"], name: "index_events_on_host_id"
     t.index ["sport_id"], name: "index_events_on_sport_id"
   end

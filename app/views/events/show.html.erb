@@ -36,6 +36,7 @@
 <p> The host is looking for <%= @event.max_players %> players.</p>
 <p> The date set is <%= @event.nice_date %>. </p>
 <p> There are <%= @event.spots_left %> spots left.</p>
+<p> Participant fee is <%=  humanized_money_with_symbol(@event.price_cents) %>.</p>
 
 <h3>Registered Users</h3>
   <% @event.bookings.each do |booking| %>
