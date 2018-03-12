@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :bookings, except: [ :index ] do
     get '/denial', to: 'bookings#update_denial'
     patch '/denial', to: 'bookings#update_denial'
-    put '/denial', to: 'bookings#update_denial'
      end
     resources :reviews, only: [ :show, :new, :create, :destroy ]
   end

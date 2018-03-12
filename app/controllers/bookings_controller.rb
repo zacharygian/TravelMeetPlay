@@ -67,6 +67,6 @@ private
 
   def booking_params
     user_id = current_user.id
-    params.permit(:event_id, :status)
+    params.permit(:event_id, :status, :rating, :review_content)
   end
 end
