@@ -15,10 +15,22 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def spots_left
-    max_players - booking_ids.length
+      max_players - bookings.where(status: "approved").count
   end
 
   def is_user_registered?(user)
     !bookings.where(user_id: user.id).blank?
+  end
+
+  def booking_pending?(user)
+    bookings.exists?(user_id: user.id, status: "pending")
+  end
+
+  def booking_approved?(user)
+    bookings.exists?(user_id: user.id, status: "approved")
+  end
+
+  def booking_rejected?(user)
+    bookings.exists?(user_id: user.id, status: "rejected")
   end
 end
