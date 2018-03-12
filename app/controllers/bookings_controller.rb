@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking.event = @event
     @booking.user = current_user
     @booking.save
-    @event.save
     authorize @booking
     flash[:notice] = "Congratulations, you've sent a request to the event owner"
     redirect_to dashboard_path
@@ -51,7 +50,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     authorize @booking
-    redirect_to events_path
+    redirect_to dashboard_path
   end
 
 
@@ -67,6 +66,6 @@ private
 
   def booking_params
     user_id = current_user.id
-    params.permit(:event_id, :status)
+    params.permit(:event_id, :status, :rating, :review_content)
   end
 end

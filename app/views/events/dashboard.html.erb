@@ -9,9 +9,17 @@
       <p><%= booking.user.first_name %> has registered </p>
      <p> Booking status: <%= booking.status %></p>
 
-<%= link_to "Approve", event_booking_path(event, booking), method: :patch, class: "btn btn-primary" %>
-<%= link_to "Denial", event_booking_denial_path(event, booking), method: :patch, class: "btn btn-danger" %>
+      <%= link_to "Approve", event_booking_path(event, booking), method: :patch, class: "btn btn-primary" %>
+      <%= link_to "Denial", event_booking_denial_path(event, booking), method: :patch, class: "btn btn-danger" %>
 
+     <% end %>
+
+    <% if event.reviews.count > 0 %>
+     <p>Participants left Reviews for this event</p>
+     <% event.reviews.each do |review| %>
+     <p>Star Rating: <%= review.rating %></p>
+     <p>Comment: <%= review.review_content %></p>
+     <% end %>
      <% end %>
 
   <br>
@@ -30,8 +38,16 @@
     <p>Location: <%= booking.event.address %></p>
     <p>Status: <%= booking.status %></p>
     <%= button_to "Cancel booking", event_booking_path(booking.event, booking), :method => :delete, data: {:confirm => "Are you sure you want to cancel your booking for this event?" }%>
-    <br>
+    <p>My reviews to this Event:
+      <% booking.event.reviews.each do |review| %>
+    <%=  review.rating.to_i %> : <%=  review.review_content%></p>
+    <% end %>
+    <%= link_to "Add a Review", new_event_review_path(booking.event_id) %>
+
   <% end %>
+
+
+    <br>
 <br>
 
   <%= link_to "Create New Event", new_event_url %>

@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     @host = current_user
     @events = current_user.events
     @bookings = current_user.bookings
+    @reviews = current_user.reviews
     authorize @events
     authorize @bookings
   end
@@ -63,6 +64,7 @@ class EventsController < ApplicationController
       address: params[:event][:address],
       date: params[:event][:date],
       max_players: params[:event][:max_players],
+      price: params[:event][:price],
       # description: params[:event][:description]
       )
     authorize @event
@@ -71,8 +73,8 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path
     authorize @event
+    redirect_to dashboard_path
   end
 
   private
@@ -82,6 +84,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:address, :date, :max_players, :host_id, :sport_id)
+    params.require(:event).permit(:address, :date, :max_players, :host_id, :sport_id, :price)
   end
 end
