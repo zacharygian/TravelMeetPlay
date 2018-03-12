@@ -1,0 +1,45 @@
+<div class="col-lg-6 experience-card">
+  <% @user.experiences.each do |experience| %>
+    <div class="sport-card">
+      <div class="sport-name">
+        <h4><%= image_tag ("#{experience.sport.name.downcase}.png"), class: "profile-sport" %> <%= experience.sport.name %></h4>
+      </div>
+    <div class="skill_level">
+      <p>Level:
+        <% experience.skill_level.times do  %>
+          <i class="fas fa-square expertise-level"></i>
+        <% end %>
+        <% (10 - experience.skill_level).times do  %>
+          <i class="fas fa-square expertise-total"></i>
+        <% end %>
+        (<%= experience.skill_level %>/10)
+      </p>
+      <p><% level_tag = experience.skill_level %>
+        <% case level_tag %>
+          <% when 1,2 %>
+            <h5>Beginner</h5>
+          <% when 3,4 %>
+            <h5>Novice</h5>
+          <% when 5,6 %>
+            <h5>Intermediate</h5>
+          <% when 7,8 %>
+            <h5>Advanced</h5>
+          <% when 9,10 %>
+            <h5>Expert</h5>
+        <% end %>
+      </p>
+      <div>
+        <%= link_to edit_experience_path(experience) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to experience_path(experience), :method => :delete, data: {:confirm => "Are you sure you want to remove #{experience.sport.name} from your sports?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+    </div>
+    <% end %>
+  <%= link_to new_experience_path do %>
+    <i class="fas fa-plus-circle"></i>
+  <% end %>
+</div>
