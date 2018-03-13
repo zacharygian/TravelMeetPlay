@@ -2,6 +2,8 @@
   <div class="profile-content">
     <% if @user.photo.present? %>
       <%= cl_image_tag (@user.photo), class: "profile-picture" %>
+      <%  elsif @user.facebook_picture_url.present?%>
+      <%= image_path(@user.facebook_picture_url) %>
     <% end %>
     <h4><i class="far fa-user"></i>  <%=  @user.first_name %> <%=  @user.last_name %></h4>
     <h4><%=  @user.age %> years old</h4>
