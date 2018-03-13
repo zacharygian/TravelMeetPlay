@@ -1,9 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3),0 1px 0 0 rgba(0,0,0,0.5);
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.3);
   background: white;
-  border-bottom-style: solid;
-  border-bottom-color: #eff2f1;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -100,3 +98,5 @@
 .search-bar {
   border-radius: 10px;
 }
+
+body { padding-top: 70px; }

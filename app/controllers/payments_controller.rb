@@ -2,16 +2,17 @@ class PaymentsController < ApplicationController
     before_action :set_order
 
   def new
-    authorize @order
+    authorize @booking
   end
 
   def create
-    authorize @order
+    authorize @booking
+    redirect_to dashboard_path
   end
 
 private
 
   def set_order
-    @order = Order.where(state: 'pending').find(params[:order_id])
+    @booking = Booking.where(status: 'pending').find(params[:booking_id])
   end
 end

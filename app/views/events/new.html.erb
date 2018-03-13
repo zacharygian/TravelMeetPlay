@@ -1,10 +1,20 @@
-<h1>Create a new game!</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1>Create a new game!</h1>
 
-<%= simple_form_for @event do |f| %>
-  <%= f.association :sport %>
-  <%= f.input :address, id: "eventAddress" %>
-  <%= f.input :date %>
-  <%= f.input :max_players %>
-  <%= f.input :price %>
-  <%= f.submit "Create event" %>
-<% end %>
+        <%= simple_form_for @event do |f| %>
+          <%= f.association :sport %>
+          <%= f.input :address, id: "eventAddress" %>
+          <%= f.input :date, html5: true %>
+          <%= f.input :max_players %>
+          <%= f.input :price, label: 'Participant fee per person' %>
+          <%= f.button :submit, "Create event", class: "add-skill-button" %>
+        <% end %>
+
+        <%= link_to events_path do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
+        </div>
+     </div>
+  </div>

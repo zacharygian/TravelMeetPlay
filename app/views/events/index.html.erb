@@ -23,20 +23,12 @@
     <div
       id="map"
       style="width: 60%;
+      position: sticky;
       height: 100vh;
       margin: 10px;"
       data-markers="<%= @markers.to_json %>">
     </div>
   </div>
 </div>
-
-<%= link_to "Back", events_path %>
-
-<script>
-  function scrollWin(x, y) {
-      window.scrollBy(0, 100);
-  }
-  window.onload = scrollWin
-</script>
 
 

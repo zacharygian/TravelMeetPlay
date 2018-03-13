@@ -8,10 +8,10 @@
       <% event.bookings.each do |booking| %>
       <p><%= booking.user.first_name %> has registered </p>
      <p> Booking status: <%= booking.status %></p>
-
+    <% if booking.status == "pending" %>
       <%= link_to "Approve", event_booking_path(event, booking), method: :patch, class: "btn btn-primary" %>
       <%= link_to "Denial", event_booking_denial_path(event, booking), method: :patch, class: "btn btn-danger" %>
-
+      <% end %>
      <% end %>
 
     <% if event.reviews.count > 0 %>
@@ -32,19 +32,29 @@
 
   <h2>Your Bookings:</h2>
     <% @bookings.each do |booking| %>
-    <p>Date: <%= booking.event.nice_date %></p>
-    <p>Sport: <%= booking.event.sport.name %></p>
+    <%= link_to booking.event.sport.name + " on " + booking.event.nice_date, event_path(booking.event)%>
     <p>Host Name: <%= booking.event.host.first_name %> <%= booking.event.host.last_name %></p>
     <p>Location: <%= booking.event.address %></p>
     <p>Status: <%= booking.status %></p>
     <%= button_to "Cancel booking", event_booking_path(booking.event, booking), :method => :delete, data: {:confirm => "Are you sure you want to cancel your booking for this event?" }%>
-    <p>My reviews to this Event:
+
+    <% if booking.event.date < Date.today %>
+    <p>My reviews to this Event:<br>
       <% booking.event.reviews.each do |review| %>
     <%=  review.rating.to_i %> : <%=  review.review_content%></p>
     <% end %>
-    <%= link_to "Add a Review", new_event_review_path(booking.event_id) %>
 
-  <% end %>
+      <% review = booking.event.reviews.new %>
+      <%= simple_form_for review, url: event_reviews_path(booking.event) do |f| %>
+      <%= f.input :rating  %>
+      <%= f.input :review_content %>
+      <%= f.submit 'save' %>
+      <% end %>
+
+
+    <br>
+   <% end %>
+   <% end %>
 
 
     <br>
@@ -53,4 +63,8 @@
   <%= link_to "Create New Event", new_event_url %>
 </div>
 </div>
+
+<%= link_to events_path do %>
+  <i class="fas fa-arrow-left"></i></i>
+<% end %>
 

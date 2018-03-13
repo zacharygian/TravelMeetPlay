@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'omniauth-facebook', '4.0.0'
 gem 'stripe'
 gem 'money-rails'
 gem 'country_select'

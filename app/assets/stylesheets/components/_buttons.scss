@@ -51,3 +51,62 @@
   }
 }
 
+.back-button {
+  font-size: 30px;
+}
+
+.navbar-button {
+  background-color: white;
+  font-size: 20px;
+  color: #f15a23;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  border-color: white;
+  &:hover {
+    border-color: white;
+    background-color: white;
+    color: #f15a23;
+  }
+}
+
+.update-button {
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  border-color: #f15a23;
+  &:hover {
+    border-color: #d4420d;
+  }
+}
+
+.profile-save-button {
+  color: #f15a23;
+  font-size: 22px;
+  background-color: white;
+  border-radius: 1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  &:hover {
+    border-color: white;
+  }
+}
+
+.add-skill-button {
+  background-color: white;
+  font-size: 20px;
+  color: #f15a23;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  border-color: white;
+  &:hover {
+    border-color: white;
+    background-color: white;
+    color: #f15a23;
+  }
+}
