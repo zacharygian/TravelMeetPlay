@@ -1,4 +1,5 @@
 <div class="col-lg-6 experience-card">
+  <h3>Your sports: </h3>
   <% @user.experiences.each do |experience| %>
     <div class="sport-card">
       <div class="sport-name">
@@ -39,7 +40,8 @@
     </div>
     </div>
     <% end %>
+  <br>
   <%= link_to new_experience_path do %>
-    <i class="fas fa-plus-circle"></i>
+    <i class="fas fa-plus"></i>
   <% end %>
 </div>
