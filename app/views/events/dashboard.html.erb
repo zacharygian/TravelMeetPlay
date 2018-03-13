@@ -1,70 +1,10 @@
 <div class="container">
-  <div class="row all-cards">
-    <h2>Hi <%= @host.first_name %>, here are your events that you've created:</h2>
-    <ul>
-    <% @events.each do |event| %>
-
-     <p> <%= event.sport.name %> at <%= event.nice_date %> </p>
-      <% event.bookings.each do |booking| %>
-      <p><%= booking.user.first_name %> has registered </p>
-     <p> Booking status: <%= booking.status %></p>
-    <% if booking.status == "pending" %>
-      <%= link_to "Approve", event_booking_path(event, booking), method: :patch, class: "btn btn-primary" %>
-      <%= link_to "Denial", event_booking_denial_path(event, booking), method: :patch, class: "btn btn-danger" %>
-      <% end %>
-     <% end %>
-
-    <% if event.reviews.count > 0 %>
-     <p>Participants left Reviews for this event</p>
-     <% event.reviews.each do |review| %>
-     <p>Star Rating: <%= review.rating %></p>
-     <p>Comment: <%= review.review_content %></p>
-     <% end %>
-     <% end %>
-
-  <br>
-      <%= link_to "See Details", event_path(event) %>
-      <li><%= link_to "Edit Event", edit_event_path(event) %></li>
-      <li><%= link_to "Delete Event", event_path(event), :method => :delete, data: {:confirm => "Are you sure you want to delete this event?" }%></li>
-          </ul>
-
-      <% end %>
-
-  <h2>Your Bookings:</h2>
-    <% @bookings.each do |booking| %>
-    <%= link_to booking.event.sport.name + " on " + booking.event.nice_date, event_path(booking.event)%>
-    <p>Host Name: <%= booking.event.host.first_name %> <%= booking.event.host.last_name %></p>
-    <p>Location: <%= booking.event.address %></p>
-    <p>Status: <%= booking.status %></p>
-    <%= button_to "Cancel booking", event_booking_path(booking.event, booking), :method => :delete, data: {:confirm => "Are you sure you want to cancel your booking for this event?" }%>
-
-    <% if booking.event.date < Date.today %>
-    <p>My reviews to this Event:<br>
-      <% booking.event.reviews.each do |review| %>
-    <%=  review.rating.to_i %> : <%=  review.review_content%></p>
-    <% end %>
-
-      <% review = booking.event.reviews.new %>
-      <%= simple_form_for review, url: event_reviews_path(booking.event) do |f| %>
-      <%= f.input :rating  %>
-      <%= f.input :review_content %>
-      <%= f.submit 'save' %>
-      <% end %>
-
-
-    <br>
-   <% end %>
-   <% end %>
-
-
-    <br>
-<br>
-
-  <%= link_to "Create New Event", new_event_url %>
+  <div class="row">
+    <%= render 'my_created_events' %>
+    <%= render 'my_booked_events' %>
+  </div>
+  <%= link_to events_path do %>
+    <i class="fas fa-arrow-left"></i></i>
+  <% end %>
 </div>
-</div>
-
-<%= link_to events_path do %>
-  <i class="fas fa-arrow-left"></i></i>
-<% end %>
 
