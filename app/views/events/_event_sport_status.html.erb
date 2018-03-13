@@ -1,0 +1,34 @@
+<div class="col-xs-6">
+  <div>
+    <h3>
+      <%= image_tag "#{@event.sport.name.downcase}.png", class: "event-main-images" %> <strong><%= @event.sport.name %></strong> hosted by <strong><%= @event.host.first_name %></strong>
+      <% if @user.present? %>
+        <% if @user.photo.present? %>
+        <%= cl_image_tag @event.host.photo, class: "event-main-images event-host" %>
+        <% end %>
+      <% end %>
+    </h3>
+  </div>
+
+  <div>
+    <p><i class="far fa-calendar-alt"></i> <%= @event.nice_date %></p>
+  </div>
+
+  <div>
+    <p>Spots available:
+      <% if (@event.max_players - @event.spots_left) == 0 %>
+        <% @event.max_players.times do %>
+          <i class="fas fa-male spots"></i>
+          <% end %>
+      <% else %>
+        <% @event.spots_left.times do %>
+          <i class="fas fa-male spots"></i>
+        <% end %>
+        <% (@event.max_players - @event.spots_left).times do %>
+          <i class="fas fa-male spots-taken"></i>
+        <% end %>
+      <% end %>
+      (<%= @event.spots_left %>/<%= @event.max_players %>)
+    </p>
+  </div>
+</div>
