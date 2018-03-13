@@ -31,6 +31,7 @@ class User < ApplicationRecord
     end
     # binding.pry
     user_params[:facebook_picture_url] = auth.info.image
+    user_params[:remote_photo_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     user_params = user_params.to_h

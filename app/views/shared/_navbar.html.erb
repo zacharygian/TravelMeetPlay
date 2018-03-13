@@ -33,8 +33,6 @@
   <% if @user.present? %>
     <% if @user.photo.present? %>
       <%= cl_image_tag (@user.photo), class: "avatar-picture" %>
-      <%  elsif @user.facebook_picture_url.present?%>
-      <%= image_path(@user.facebook_picture_url,  class: "avatar-picture") %>
     <% end %>
   <% end %>
 
