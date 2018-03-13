@@ -10,7 +10,7 @@
           <% end %>
           <%= f.input :first_name, required: true, placeholder: 'John' %>
           <%= f.input :last_name, placeholder: 'Appleseed' %>
-          <%= f.input :age %>
+          <%= f.input :age, collection: 1..100 %>
           <p><strong>Where are you from?</strong></p>
           <%= f.country_select :country, label: 'Where are you from?' %>
           <br>
