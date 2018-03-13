@@ -30,6 +30,14 @@
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
+  <% if @user.present? %>
+    <% if @user.photo.present? %>
+      <%= cl_image_tag (@user.photo), class: "avatar-picture" %>
+      <%  elsif @user.facebook_picture_url.present?%>
+      <%= image_path(@user.facebook_picture_url,  class: "avatar-picture") %>
+    <% end %>
+  <% end %>
+
     <!-- Dropdown list appearing on mobile only -->
     <div class="navbar-wagon-item hidden-md hidden-lg">
       <div class="dropdown">
