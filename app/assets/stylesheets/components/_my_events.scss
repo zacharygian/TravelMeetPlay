@@ -1,0 +1,46 @@
+
+.event-box {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #eff2f1;
+  border-radius: 4px;
+  padding: 10px 10px;
+  margin-top: 10px;
+}
+
+.event-options {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+  float: left;
+}
+
+.event-links {
+  margin-left: 5px;
+}
+
+.positive-review {
+  color: #FEBF00;
+}
+
+.no-review {
+  color: #99a1a8;
+}
+
+.review-box {
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #eff2f1;
+  margin-bottom: 4px;
+}
+
+.review-components {
+  text-indent: 6px;
+}
+
+.event-owner {
+  border-radius: 50%;
+  width: 65px;
+  height: auto;
+}
+

@@ -1,0 +1,59 @@
+<div class="col-lg-6">
+  <h3>Your bookings:</h3>
+  <h3></h3>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="row boxer">
+        <h4><%= image_tag "#{booking.event.sport.name.downcase}.png", class: "event-main-images" %><%= link_to booking.event.sport.name + " on " + booking.event.nice_date, event_path(booking.event) %></h4>
+        <p>
+          <% if booking.event.host.photo.present? %>
+            <%= cl_image_tag (booking.event.host.photo), class: "event-owner" %>
+          <% end %>
+          Hosted by
+          <%= booking.event.host.first_name %>
+        </p>
+        <p>
+          <i class="fas fa-location-arrow"></i>
+          <%= booking.event.address %>
+        </p>
+        <p>
+          <strong>Status:</strong> <%= booking.status.capitalize %>
+        </p>
+        <p>
+          <%= link_to event_booking_path(booking.event, booking), :method => :delete, data: {:confirm => "Are you sure you want to cancel your booking for this event?" } do %>
+          <i class="fas fa-times"></i>
+          <% end %>
+        </p>
+
+        <% if booking.event.date < Date.today %>
+          <p>My reviews to this Event:<br>
+            <% booking.event.reviews.each do |review| %>
+
+
+              <p class="review-components">Rating:
+                <% review.rating.to_i.times do %>
+                  <i class="fas fa-star positive-review"></i>
+                <% end %>
+                <% (5 - review.rating.to_i).times do %>
+                  <i class="fas fa-star no-review"></i>
+                <% end %>
+              (<%= review.rating.to_i %>/5)
+              by
+              <%= @user.first_name %>
+            </p>
+            <% end %>
+          </p>
+
+          <% review = booking.event.reviews.new %>
+          <%= simple_form_for review, url: event_reviews_path(booking.event) do |f| %>
+            <%= f.input :rating, colection: 1..5  %>
+            <%= f.input :review_content %>
+            <%= button_tag class: "btn-primary navbar-button" do %>
+              <i class="far fa-save"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

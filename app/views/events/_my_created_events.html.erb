@@ -1,0 +1,59 @@
+<div class="col-lg-6">
+  <h3>Events you have created:</h3>
+  <%= link_to "Create New Event", new_event_url %>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="row boxer">
+        <h4><%= image_tag "#{event.sport.name.downcase}.png", class: "event-main-images" %> <%= event.sport.name %> on <%= event.nice_date %></h4>
+        <% event.bookings.each do |booking| %>
+          <p><%= booking.user.first_name %> has registered.</p>
+          <p>Booking status: <%= booking.status.capitalize %></p>
+          <% if booking.status == "pending" %>
+            <p>
+              <%= link_to event_booking_path(event, booking), method: :patch do%>
+              <i class="fas fa-check"></i>
+              <% end %>
+              Approve
+            </p>
+            <p>
+              <%= link_to event_booking_denial_path(event, booking), method: :patch do%>
+              <i class="fas fa-times"></i>
+              <% end %>
+              Reject
+            </p>
+          <% end %>
+        <% end %>
+        <% if event.reviews.count > 0 %>
+          <p><strong>Reviews for this event:</strong></p>
+          <% event.reviews.each do |review| %>
+            <div class="review-box">
+              <p class="review-components">Rating:
+                <% review.rating.to_i.times do %>
+                  <i class="fas fa-star positive-review"></i>
+                <% end %>
+                <% (5 - review.rating.to_i).times do %>
+                  <i class="fas fa-star no-review"></i>
+                <% end %>
+                (<%= review.rating.to_i %>/5)
+              </p>
+              <p class="review-components">Comment: <%= review.review_content %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="event-links">
+          <p>
+            <%= link_to event_path(event) do %>
+              <i class="fas fa-eye"></i>
+            <% end %>
+            <%= link_to edit_event_path(event) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to event_path(event), :method => :delete, data: {:confirm => "Are you sure you want to delete this event?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

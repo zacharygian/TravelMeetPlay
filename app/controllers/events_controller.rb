@@ -6,13 +6,6 @@ class EventsController < ApplicationController
     @events = policy_scope(Event)
     # @events = Event.all
     @events = policy_scope(Event)
-    @markers = @events.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: { content: render_to_string(partial: "/events/map_box", locals: { event: event }) }
-      }
-    end
 
     if params[:search].present?
       sql_query = " \
@@ -22,6 +15,14 @@ class EventsController < ApplicationController
       @events = Event.joins(:sport).where(sql_query, search: "%#{params[:search]}%")
     else
        @events = policy_scope(Event)
+    end
+
+    @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: { content: render_to_string(partial: "/events/map_box", locals: { event: event }) }
+      }
     end
   end
 
