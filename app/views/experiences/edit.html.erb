@@ -1,5 +1,14 @@
-<%= simple_form_for @experience do |f| %>
-<%= f.input :sport_id %>
-<%= f.input :skill_level %>
-<%= f.submit "add skill level" %>
-<% end %>
+<div class="container profile-edit-box">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%= simple_form_for @experience do |f| %>
+        <%= f.association :sport, hint: "Choose a sport from the dropdown menu" %>
+        <%= f.input :skill_level, collection: 1..10, hint: "Choose your skill level above" %>
+        <%= f.button :submit, "Edit Sport", class: "add-skill-button" %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to profile_path do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+</div>
