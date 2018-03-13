@@ -16,13 +16,18 @@ Rails.application.routes.draw do
 
   end
 
+  resources :conversations do
+    resources :messages
+  end
+
+
   get '/profile', to: 'pages#profile'
   get '/dashboard', to: 'events#dashboard'
   as :user do
-  get 'users', to: 'pages#profile', as: :user_root # Rails 3
-end
+    get 'users', to: 'pages#profile', as: :user_root # Rails 3
+  end
 
 
-
+  mount ActionCable.server, at: '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

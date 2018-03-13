@@ -24,6 +24,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
 gem 'geocoder'
+gem 'semantic-ui-sass'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
