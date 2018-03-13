@@ -52,3 +52,9 @@
   width: auto;
   height: 24px;
 }
+
+#map {
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
+
