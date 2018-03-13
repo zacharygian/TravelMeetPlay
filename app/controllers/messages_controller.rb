@@ -31,7 +31,9 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.new(message_params)
   if @message.save
-    redirect_to conversation_messages_path(@conversation)
+    ActionCable.server.broadcast 'room_channel',
+                                   message: @message,
+                                   user: @message.user
   else
     render :new
   end
