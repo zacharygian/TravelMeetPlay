@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   end
 
   def dashboard
-    @host = current_user
+    @user = @host = current_user
     @events = current_user.events
     @bookings = current_user.bookings
     @reviews = current_user.reviews
