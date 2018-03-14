@@ -1,10 +1,22 @@
-<h1>Edit your <%= @event.sport.name %> game</h1>
+   <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1>Edit your <%= @event.sport.name %> game</h1>
 
+        <%= simple_form_for @event do |f| %>
+          <%= f.association :sport %>
+          <%= f.input :address, id: "eventAddress" %>
+            <p>Date</p>
+             <%= f.input_field :date,  label: "Date", as: :string, class: 'datetimepicker' %>
 
-<%= simple_form_for @event do |f| %>
-  <%= f.input :address %>
-  <%= f.input :date %>
-  <%= f.input :max_players %>
-  <%= f.input :price %>
-  <%= f.submit "Edit event" %>
-<% end %>
+          <%= f.input :max_players %>
+          <%= f.input :price, label: 'Participant fee per person' %>
+          <%= f.button :submit, "Edit event", class: "add-skill-button" %>
+        <% end %>
+
+        <%= link_to events_path do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
+        </div>
+     </div>
+  </div>
