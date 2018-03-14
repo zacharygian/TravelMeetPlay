@@ -2,6 +2,17 @@ class Event < ApplicationRecord
   belongs_to :sport
   belongs_to :host, class_name: "User"
 
+  include PgSearch
+  pg_search_scope :search_full_text,
+    against: [ :address ],
+    associated_against: {
+      sport: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
 

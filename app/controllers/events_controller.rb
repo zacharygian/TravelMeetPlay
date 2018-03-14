@@ -5,14 +5,16 @@ class EventsController < ApplicationController
     @user = current_user
     @events = policy_scope(Event)
     # @events = Event.all
-    @events = policy_scope(Event)
 
     if params[:search].present?
-      sql_query = " \
-        events.address ILIKE :search \
-        OR sports.name ILIKE :search \
-      "
-      @events = Event.joins(:sport).where(sql_query, search: "%#{params[:search]}%")
+      @events = Event.search_full_text(params[:search])
+
+
+            #   sql_query = " \
+    #     events.address ILIKE :search \
+    #     OR sports.name ILIKE :search \
+    #   "
+    #   @events = Event.joins(:sport).where(sql_query, search: "%#{params[:search]}%")
     else
        @events = policy_scope(Event)
     end

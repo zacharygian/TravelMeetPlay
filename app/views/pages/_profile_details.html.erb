@@ -1,5 +1,4 @@
 <div class="col-lg-6 profile-card">
-  <div>
     <% if @user.photo.present? %>
       <%= cl_image_tag (@user.photo), class: "profile-picture" %>
     <% end %>
@@ -16,5 +15,5 @@
     <%= link_to edit_user_registration_path do %>
       <i class="far fa-edit"></i>
     <% end %>
-  </div>
 </div>
+
