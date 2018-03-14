@@ -1,11 +1,14 @@
-<div class="banner">
-  <div class="lander">
-    <div class="right-banner hidden-xs hidden-sm"">
-      <div class="upper-side">
-        <h3>Highlight your game!</h3>
+<div class="container landing-page">
+  <div class="row d-flex justify-content-around landing">
+    <div class="col-lg-6 align-middle">
+      <%= image_tag("main_logo.png", :alt => "Travel. Meet. Play.", class: "main-logo" ) %>
+    </div>
+    <div class="col-lg-6">
+      <div class="right-banner">
+
         <p >How about playing your favourite sports on the other side of the world? Travel around the globe and challenge locals that share your passion!</p>
       </div>
-      <div>
+      <div class="get-started">
         <% if user_signed_in? %>
           <%= link_to "Get started!",  events_path, class: "btn-landing" %>
         <% else %>
@@ -14,8 +17,4 @@
       </div>
     </div>
   </div>
-  <div class="landing-sports">
-
-  </div>
-
 </div>
