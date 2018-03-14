@@ -8,7 +8,7 @@
       <% user = User.find(message.user_id) %>
       <div class="item">
         <div class="content">
-          <strong><%= user.first_name %></strong><%= message.message_time %>
+          <strong><%= user.first_name %> </strong><%= message.message_time %>
           <p><%= message.body %></p>
         </div>
       </div>
@@ -22,7 +22,7 @@
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
   <div>
-    <%= f.submit "Add Reply", class: "ui blue labeled submit icon button" %>
+    <%= f.submit "Add Reply", class: "ui blue labeled submit icon button", id: "button" %>
   </div>
 <% end %>
 

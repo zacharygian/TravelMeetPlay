@@ -21,6 +21,14 @@ class User < ApplicationRecord
     end
   end
 
+  def conversation_with(another_user)
+    if conversation = Conversation.between(id, another_user.id).first
+      return conversation
+    else
+      return Conversation.create!(recipient_id: another_user.id, sender_id: id)
+    end
+  end
+
   def self.find_for_facebook_oauth(auth)
     # binding.pry
     user_params = auth.slice(:provider, :uid)

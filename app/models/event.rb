@@ -33,4 +33,12 @@ class Event < ApplicationRecord
   def booking_rejected?(user)
     bookings.exists?(user_id: user.id, status: "rejected")
   end
+
+  # def conversation_with(user)
+  #   if Conversation.between(@event.host.id, current_user.id).present?
+  #     @conversation = Conversation.between(@event.host.id, current_user.id).first
+  #   else
+  #    @conversation = Conversation.create!(recipient_id: @event.host.id, sender_id: current_user.id)
+  #   end
+  # end
 end

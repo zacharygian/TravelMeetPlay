@@ -19,7 +19,13 @@ $(document).ready(function() {
     if (event.keyCode === 13) {
       $('#new_message').submit()
       event.preventDefault()
-      event.target.value = ""
     }
   });
+
+  $("#new_message").on('submit', function(event) {
+
+    setTimeout(function() {
+      $('#message_body').val('');
+    }, 100);
+  })
 });

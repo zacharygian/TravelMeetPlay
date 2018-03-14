@@ -8,6 +8,8 @@
         <% end %>
       <% end %>
     </h3>
+
+    <%= link_to "Send a message to #{@event.host.first_name}", conversation_messages_path(@event.host.conversation_with(current_user)) %>
   </div>
 
   <div>
