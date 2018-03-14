@@ -9,8 +9,10 @@ class Event < ApplicationRecord
       sport: [ :name ]
     },
     using: {
-      tsearch: { prefix: true }
-    }
+      tsearch: { prefix: true },
+    },
+    order_within_rank: "events.updated_at DESC"
+
 
 
   has_many :reviews, dependent: :destroy
