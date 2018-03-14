@@ -15,8 +15,17 @@ class BookingsController < ApplicationController
     @booking.event_sku = @event.sku
     @booking.amount_cents = @event.price_cents
     @booking.save
-    flash[:notice] = "Confirmation request has been sent to the event owner"
+
     redirect_to new_event_booking_payment_path(@event, @booking)
+
+    if @booking.save
+    BookingMailer.request_approval(@booking).deliver_now
+    else
+      render :new
+    end
+
+
+
     authorize @booking
   end
 
@@ -29,7 +38,7 @@ class BookingsController < ApplicationController
     @booking.save
     authorize @booking
     flash[:notice] = "You approved #{@booking.user.first_name} to join the event"
-    redirect_to dashboard_path
+
   end
 
   def update_denial

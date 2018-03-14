@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'postmark-rails'
+gem "letter_opener", group: :development
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 

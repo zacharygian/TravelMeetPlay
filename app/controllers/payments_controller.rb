@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
 
   def create
     authorize @booking
+    flash[:notice] = "Confirmation request has been sent to the event owner"
     redirect_to dashboard_path
   end
 
