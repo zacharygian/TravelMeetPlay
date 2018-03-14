@@ -1,37 +1,11 @@
-.banner {
-  background-image: url(asset-path("background.jpg"));
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.lander {
-  text-align: center;
-  height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  background-image: url(asset-path("tmp_banner.png"));
-}
-
 .right-banner {
   text-align: left;
   flex-basis: 45%;
-  margin-right: 30px;
+  margin-bottom: 90px;
+  margin-top: 60px;
+  margin-left: 20px;
   font-family: "roboto", "sans-serif";
   color: black;
-  h3 {
-    font-size: 60px;
-    font-weight: bolder;
-    opacity: 0.75;
-    margin-bottom: 25px;
-    margin-top: 0px;
-  }
   p {
     font-size: 25px;
     font-weight: normal;
@@ -39,6 +13,31 @@
   }
 }
 
+.get-started {
+  margin-left: 20px;
+
+}
+
 .upper-side {
-  margin-bottom: 60px;
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+
+.main-logo {
+  width: 100%;
+  height: auto;
+}
+
+.landing {
+  margin-top: 30px;
+  background-color: transparent;
+  height: 100vh;
+}
+
+.landing-page {
+  background-image: url(asset-path("background.jpg"));
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover !important;
 }
