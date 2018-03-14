@@ -1,18 +1,34 @@
-<h1>Pay Participant fee <%= @booking.event_sku %></h1>
-<%= form_tag event_booking_payments_path(@booking) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
-    </label>
-  </article>
+<div class="container">
+  <div class="row">
+    <%= form_tag event_booking_payments_path(@booking) do %>
+    <div class="col-sm-6 col-sm-offset-3" align="center">
+      <h3>Booking Confirmation</h3>
+      <h4>
+        <%= image_tag "#{@booking.event.sport.name.downcase}.png", class: "event-main-images" %> <strong><%= @booking.event.sport.name %></strong> with <%= @booking.event.host.first_name %>
+        <% if @user.present? %>
+          <% if @user.photo.present? %>
+            <%= cl_image_tag @event.host.photo, class: "event-main-images event-host" %>
+          <% end %>
+        <% end %>
+      </h4>
+      <label>
+        <span> Participation fee:
+        <%= humanized_money_with_symbol(@booking.amount) %></span>
+      </label>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Event"
-    data-email="<%= current_user.email %>"
-    data-description="Event <%= @booking.event_sku %>"
-    data-amount="<%= @booking.amount_cents %>"
-    data-currency="<%= @booking.amount.currency %>"></script>
-
-<% end %>
-
+    </div>
+    <br>
+    <br>
+    <div class="col-sm-6 col-sm-offset-3" align="center">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="<%= @booking.event.sport.name %>"
+        data-email="<%= current_user.email %>"
+        data-description="with <%= @booking.event.host.first_name %>"
+        data-amount="<%= @booking.amount_cents %>"
+        data-currency="<%= @booking.amount.currency %>">
+      </script>
+    </div>
+  <% end %>
+  </div>
+</div>
