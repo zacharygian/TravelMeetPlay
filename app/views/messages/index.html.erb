@@ -1,29 +1,43 @@
 <% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
+   <%= link_to 'Show previous messages', '?m=all' %>
 <% end %>
 
 <div class="container" id="messages-table">
+  <div class="col-lg-12">
   <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <div class="item">
-        <div class="content">
-          <strong><%= user.first_name %> </strong><%= message.message_time %>
-          <p><%= message.body %></p>
+        <%if user.id == current_user.id  %>
+        <div>
+          <div class="content speech-bubble-host">
+            <p>
+              <strong><%= user.first_name %> </strong>
+              <%= message.message_time %>
+            </p>
+            <p><%= message.body %></p>
+          </div>
         </div>
+        <% else %>
+          <div class="content speech-bubble-player">
+            <p><strong><%= user.first_name %> </strong><%= message.message_time %></p>
+            <p><%= message.body %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>
+  </div>
 </div>
 
-<%= form_for [@conversation, @message], remote: true, authenticity_token: true, html: {class: "ui reply form"} do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div>
-    <%= f.submit "Add Reply", class: "ui blue labeled submit icon button", id: "button" %>
-  </div>
-<% end %>
-
-
+<div class="col-lg-6">
+  <%= form_for [@conversation, @message], remote: true, authenticity_token: true, html: {class: "ui reply form"} do |f| %>
+    <div class="field">
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <div>
+      <%= f.submit "Send", class: "ui blue labeled submit icon button", id: "button" %>
+    </div>
+  <% end %>
+</div>
