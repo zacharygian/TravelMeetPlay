@@ -23,6 +23,8 @@ class User < ApplicationRecord
   end
 
   def conversation_with(another_user)
+    raise 'Don\'t talk to yourself' if another_user == self
+
     if conversation = Conversation.between(id, another_user.id).first
       return conversation
     else
