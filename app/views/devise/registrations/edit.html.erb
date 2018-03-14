@@ -24,19 +24,17 @@
         </div>
 
         <div>
-          <p>Save:
+          <p>
             <%= button_tag class: "profile-save-button" do %>
               <i class="far fa-save"></i>
+            <% end %>
+            <%= link_to registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "profile-save-button" do%>
+            <i class="far fa-trash-alt"></i>
             <% end %>
           </p>
         </div>
       <% end %>
-      <p>Delete account:
-        <%= link_to registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account?" }, method: :delete do%>
-        <i class="far fa-trash-alt"></i>
-        <% end %>
-      </p>
-      <%= link_to profile_path do %>
+      <%= link_to profile_path, data: { confirm: "Are you sure you want to go back? All your unsaved changes will be lost." } do %>
         <i class="fas fa-arrow-left"></i>
       <% end %>
     </div>
