@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
 gem 'pg_search'
 gem 'omniauth-facebook', '4.0.0'
 gem 'stripe'

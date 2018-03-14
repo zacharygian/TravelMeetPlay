@@ -6,7 +6,17 @@
         <%= simple_form_for @event do |f| %>
           <%= f.association :sport %>
           <%= f.input :address, id: "eventAddress" %>
-          <%= f.input :date, html5: true %>
+          <!--     <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+ </-->
+
+            <p>Date</p>
+             <%= f.input_field :date,  label: "Date", as: :string, class: 'datetimepicker' %>
+
           <%= f.input :max_players %>
           <%= f.input :price, label: 'Participant fee per person' %>
           <%= f.button :submit, "Create event", class: "add-skill-button" %>
