@@ -8,7 +8,7 @@
           <%= f.input :address, id: "eventAddress" %>
             <p>Date</p>
              <%= f.input_field :date,  label: "Date", as: :string, class: 'datetimepicker' %>
-
+          <%= f.input :description %>
           <%= f.input :max_players %>
           <%= f.input :price, label: 'Participant fee per person' %>
           <%= f.button :submit, "Edit event", class: "add-skill-button" %>
