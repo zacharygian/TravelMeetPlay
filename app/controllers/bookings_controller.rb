@@ -39,6 +39,12 @@ class BookingsController < ApplicationController
     authorize @booking
     flash[:notice] = "You approved #{@booking.user.first_name} to join the event"
     redirect_to dashboard_path
+
+     if @booking.save
+    BookingMailer.approval_mail(@booking).deliver_now
+    else
+      render :new
+    end
   end
 
   def update_denial
