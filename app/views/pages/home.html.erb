@@ -1,20 +1,46 @@
-<div class="container landing-page">
-  <div class="row d-flex justify-content-around landing">
-    <div class="col-lg-6 align-middle">
-      <%= image_tag("main_logo.png", :alt => "Travel. Meet. Play.", class: "main-logo" ) %>
-    </div>
-    <div class="col-lg-6">
-      <div class="right-banner">
+<head>
+  <!-- Google result text-->
+  <title>TravelMeetPlay - Hightlight Your Game</title>
+  <!-- Google result description-->
+  <meta name="description" content="How about playing your favourite sports on the other side of the world? Travel around the globe and challenge locals that share your passion!">
 
-        <p >How about playing your favourite sports on the other side of the world? Travel around the globe and challenge locals that share your passion!</p>
+   <meta property="og:title" content="TravelMeetPlay - Hightlight Your Game">
+  <meta property="og:image" content="facebook_back.png">
+  <meta property="og:description" content="How about playing your favourite sports on the other side of the world? Travel around the globe and challenge locals that share your passion!">
+  <meta property="og:site_name" content="TravelMeetPlay"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@travelmeetplay">
+  <meta name="twitter:title" content="TravelMeetPlay - Hightlight Your Game">
+  <meta name="twitter:description" content="How about playing your favourite sports on the other side of the world? Travel around the globe and challenge locals that share your passion!">
+  <meta name="twitter:creator" content="@travelmeetplay">
+  <meta name="twitter:image:src" content="http://twitter-card.jpg">
+
+
+  <meta charset="utf-8">
+</head>
+<body>
+
+
+
+  <div class="container landing-page">
+    <div class="row d-flex justify-content-around landing">
+      <div class="col-lg-6 align-middle">
+        <%= image_tag("main_logo.png", :alt => "Travel. Meet. Play.", class: "main-logo" ) %>
       </div>
-      <div class="get-started">
-        <% if user_signed_in? %>
-          <%= link_to "Get started!",  events_path, class: "btn-landing" %>
-        <% else %>
-          <%= link_to t(".sign_in", default: "Get started!"), new_user_session_path, class: "btn-landing" %>
-        <% end %>
+      <div class="col-lg-6">
+        <div class="right-banner">
+
+          <p >How about playing your favourite sports on the other side of the world? Travel around the globe and challenge locals that share your passion!</p>
+        </div>
+        <div class="get-started">
+          <% if user_signed_in? %>
+            <%= link_to "Get started!",  events_path, class: "btn-landing" %>
+          <% else %>
+            <%= link_to t(".sign_in", default: "Get started!"), new_user_session_path, class: "btn-landing" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
