@@ -2,42 +2,58 @@
    <%= link_to 'Show previous messages', '?m=all' %>
 <% end %>
 
-<div class="container" id="messages-table">
-  <div class="col-lg-12">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class="item">
-        <%if user.id == current_user.id  %>
-        <div>
-          <div class="content speech-bubble-host">
-            <p>
-              <strong><%= user.first_name %> </strong>
-              <%= message.message_time %>
-            </p>
-            <p><%= message.body %></p>
-          </div>
-        </div>
-        <% else %>
-          <div class="content speech-bubble-player">
-            <p><strong><%= user.first_name %> </strong><%= message.message_time %></p>
-            <p><%= message.body %></p>
+<div class="container message-container" id="messages-table">
+  <div class="row">
+      <div class="col-xs-12 message-items">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <div class="item">
+            <%if user.id == current_user.id  %>
+            <div>
+              <div class="content speech-bubble-host">
+                <p>
+                  <strong><%= user.first_name %> </strong>
+                  <%= message.message_time %>
+                </p>
+                <p><%= message.body %></p>
+              </div>
+            </div>
+            <% else %>
+              <div class="content speech-bubble-player">
+                <p><strong><%= user.first_name %> </strong><%= message.message_time %></p>
+                <p><%= message.body %></p>
+              </div>
+            <% end %>
           </div>
         <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for [@conversation, @message], remote: true, authenticity_token: true do |f| %>
+    <div class="sending-form-container">
+      <div class="form-input-container">
+        <%= f.text_area :body, class: "form-control" %>
+        <%= f.text_field :user_id, id: 'current-user-id', value: current_user.id, type: "hidden"  %>
       </div>
-    <% end %>
+
+      <div class="button-container">
+        <%= f.submit "Send", class: "send-button", id: "button" %>
+      </div>
+    </div>
   <% end %>
+
   </div>
 </div>
 
-<div class="col-lg-6">
-  <%= form_for [@conversation, @message], remote: true, authenticity_token: true, html: {class: "ui reply form"} do |f| %>
-    <div class="field">
-      <%= f.text_area :body, class: "form-control" %>
-    </div>
-      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <div>
-      <%= f.submit "Send", class: "ui blue labeled submit icon button", id: "button" %>
-    </div>
-  <% end %>
-</div>
+
+
+
+

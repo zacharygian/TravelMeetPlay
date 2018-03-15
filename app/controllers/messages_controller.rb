@@ -33,7 +33,8 @@ class MessagesController < ApplicationController
   if @message.save
     ActionCable.server.broadcast 'room_channel',
                                    message: @message,
-                                   user: @message.user
+                                   user: @message.user,
+                                   message_time: @message.message_time
   else
     render :new
   end

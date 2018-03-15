@@ -9,3 +9,5 @@
 
 console.log('Hello World from Webpacker')
 import 'bootstrap';
+
+document.querySelector('#messages-table .message-items .item:last-child').scrollIntoView();
