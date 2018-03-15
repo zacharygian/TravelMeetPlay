@@ -13,12 +13,13 @@ class Event < ApplicationRecord
     },
     order_within_rank: "events.updated_at DESC"
 
-
-
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
   monetize :price_cents
+
+  validates :date, presence: true
+  validates :max_players, presence: true
 
   def nice_date
     date.strftime("%b %d, %Y") if date
