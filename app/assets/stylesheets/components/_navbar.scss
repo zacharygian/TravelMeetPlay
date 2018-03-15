@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.3);
-  background: white;
+  background: rgba(255, 255, 255, 1);
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -13,6 +13,7 @@
 /* Logo */
 .navbar-logo img {
   height: 50px;
+  border-right: 2px solid #eff2f1;
   transform: scale(0.95);
   transition: box-shadow 0.2s, transform 0.2s;
   &:hover{
@@ -20,6 +21,7 @@
     text-decoration: none;
   }
 }
+
 
 /* User Avatar */
 .navbar-wagon .avatar {
@@ -43,7 +45,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: black;
+  color: #747B86;
   font-size: 14px;
   transition: box-shadow 0.2s;
   &:hover{
@@ -96,7 +98,8 @@
 }
 
 .search-bar {
-  border-radius: 10px;
+  border-radius: 4px;
+  margin-top: -6px;
 }
 
 body { padding-top: 70px; }
