@@ -1,9 +1,9 @@
 <div class="container">
   <div class="home">
     <div class="row all-cards">
-      <h3>Hey <%= @user.first_name %>! Here's what's happening around you:</h3>
-      <hr>
       <div class="col-xs-8 col-sm-8 col-lg-8 col-xl-8">
+        <h3>Hi <%= @user.first_name %>! Here's what's happening around you</h3>
+        <hr>
         <% @events.each do |event| %>
           <%= link_to event_path(event) do %>
             <div class="card col-xs-4 col-sm-4 col-lg-4">
