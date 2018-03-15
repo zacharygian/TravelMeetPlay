@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_conversation
 
   def index
+    @user = current_user
     @messages = policy_scope(@conversation.messages)
     authorize @messages
 
