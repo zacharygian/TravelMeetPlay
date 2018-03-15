@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
   margin: 10px 20px;
   height: 50px;
   background-color: transparent !important;
@@ -32,7 +33,7 @@ html, body {
   display: block;
 }
 .site-footer, .page-wrap:after {
-  height: 50px;
+  height: 40px;
 }
 .site-footer {
   background: orange;
