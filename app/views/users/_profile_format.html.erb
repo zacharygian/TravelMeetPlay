@@ -1,17 +1,17 @@
 <div class="col-lg-6 profile-card">
-    <% if @user.photo.present? %>
-      <%= cl_image_tag (@user.photo), class: "profile-picture" %>
+    <% if @user_player.photo.present? %>
+      <%= cl_image_tag (@user_player.photo), class: "profile-picture" %>
     <% end %>
-    <h4><i class="far fa-user"></i>  <%=  @user.first_name %> <%=  @user.last_name %></h4>
-    <h4><%=  @user.age %> years old</h4>
+    <h4><i class="far fa-user"></i>  <%=  @user_player.first_name %> <%=  @user_player.last_name %></h4>
+    <h4><%=  @user_player.age %> years old</h4>
     <h4><i class="far fa-compass"></i></i>
-      <% if @user.country %>
-        <%=  @user.country_name %>
+      <% if @user_player.country %>
+        <%=  @user_player.country_name %>
       <% end %>
     </h4>
     <br>
     <h4>About me</h4>
-    <p><%= @user.biography %></p>
+    <p><%= @user_player.biography %></p>
 </div>
 
 

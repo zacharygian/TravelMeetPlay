@@ -1,6 +1,6 @@
 <div class="col-lg-6 experience-card">
   <h3>Sports Experience: </h3>
-  <% @user.experiences.each do |experience| %>
+  <% @user_player.experiences.each do |experience| %>
     <div class="sport-card">
       <div class="sport-name">
         <h4><%= image_tag ("#{experience.sport.name.downcase}.png"), class: "profile-sport" %> <%= experience.sport.name %></h4>
