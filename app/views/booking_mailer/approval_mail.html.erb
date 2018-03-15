@@ -1,0 +1,6 @@
+<p>
+  Hi <%= @booking.user.first_name %>,
+  You've got approved by <%= @booking.event.host.first_name %> to join his event on <%= @booking.event.nice_date %>.
+
+<%= link_to "Check your booking from here", dashboard_url %>
+</p>
