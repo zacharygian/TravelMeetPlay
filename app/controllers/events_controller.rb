@@ -44,6 +44,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     authorize @event
+    @user = current_user
   end
 
   def create

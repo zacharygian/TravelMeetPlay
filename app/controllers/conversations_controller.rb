@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
     @users = User.all
     @conversations = policy_scope(Conversation)
     authorize @conversations
+    @user = current_user
   end
 
   def create
