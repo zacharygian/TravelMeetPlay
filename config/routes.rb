@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :experiences
-
+  resources :users, only: [:show]
   resources :events do
     resources :bookings, except: [ :index ] do
     resources :payments, only: [:new, :create]
