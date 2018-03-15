@@ -2,6 +2,7 @@
   <div class="home">
     <div class="row all-cards">
       <h3>Hey <%= @user.first_name %>! Here's what's happening around you:</h3>
+      <hr>
       <div class="col-xs-8 col-sm-8 col-lg-8 col-xl-8">
         <% @events.each do |event| %>
           <%= link_to event_path(event) do %>
@@ -11,7 +12,7 @@
               </div>
               <div class="booking-content">
                 <h4><%= event.sport.name %></h4>
-                <p><i class="fas fa-location-arrow"></i> <%= event.address %></p>
+                <p><i class="fas fa-map-marker-alt"></i> <%= event.address %></p>
                 <p>By <%= event.host.first_name %></p>
                 <p><%= event.nice_date %></p>
               </div>
