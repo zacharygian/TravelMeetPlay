@@ -18,3 +18,17 @@ $(function(){
     }
   });
 });
+
+
+$(document).ready(function(){
+  setTimeout(function(){
+    $(".alert").remove();
+  }, 3000);
+ })
+
+$(document).ready(function(){
+  setTimeout(function(){
+    $(".notice" ).remove();
+  }, 3000);
+ })
+
