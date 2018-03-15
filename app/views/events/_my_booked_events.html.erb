@@ -12,7 +12,7 @@
             <%= cl_image_tag (booking.event.host.photo), class: "event-owner" %>
           <% end %>
           Hosted by
-          <%= booking.event.host.first_name %>
+          <strong><%= link_to booking.event.host.first_name, user_path(booking.event.host.id) %></strong>
         </p>
         <p>
           <i class="fas fa-map-marker-alt"></i>
