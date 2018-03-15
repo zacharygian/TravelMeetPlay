@@ -10,6 +10,8 @@
     </h3>
     <% unless @event.host.id == current_user.id %>
     <%= link_to "Send a message to #{@event.host.first_name}", conversation_messages_path(@event.host.conversation_with(current_user)) %>
+    <br>
+    <%= link_to "See #{@event.host.first_name}'s profile", user_path(@event.host.id)  %>
     <% end %>
   </div>
 

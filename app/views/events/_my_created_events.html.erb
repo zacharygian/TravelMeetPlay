@@ -18,6 +18,7 @@
         </p>
         <% event.bookings.each do |booking| %>
           <p><%= booking.user.first_name %> has registered. Booking: <%= booking.status.capitalize %></p>
+          <p><%= link_to "See #{booking.user.first_name}'s profile", user_path(booking.user.id) %></p>
           <% if booking.status == "pending" %>
             <p>
               <%= link_to event_booking_path(event, booking), method: :patch do%>
