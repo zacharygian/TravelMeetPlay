@@ -1,10 +1,12 @@
 <div class="col-lg-6">
+  <div class="my_titles">
   <h3>Your bookings:</h3>
-  <h3></h3>
+  </div>
+  <hr>
   <div class="row">
     <% @bookings.each do |booking| %>
-      <div class="row boxer">
-        <h4><%= image_tag "#{booking.event.sport.name.downcase}.png", class: "event-main-images" %><%= link_to booking.event.sport.name + " on " + booking.event.nice_date, event_path(booking.event) %></h4>
+      <div class="row boxer card_fonts">
+        <h4><%= image_tag "#{booking.event.sport.name.downcase}.png", class: "event-main-images" %> <%= link_to booking.event.sport.name + " on " + booking.event.nice_date, event_path(booking.event), class: "card_fonts" %></h4>
         <p>
           <% if booking.event.host.photo.present? %>
             <%= cl_image_tag (booking.event.host.photo), class: "event-owner" %>
@@ -13,7 +15,7 @@
           <%= booking.event.host.first_name %>
         </p>
         <p>
-          <i class="fas fa-location-arrow"></i>
+          <i class="fas fa-map-marker-alt"></i>
           <%= booking.event.address %>
         </p>
         <p>
