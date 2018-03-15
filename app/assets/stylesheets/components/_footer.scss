@@ -1,5 +1,5 @@
 .footermain {
-  color: black;
+  color: #747B86;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,7 +9,7 @@
 }
 
 .footlinks {
-  color: black;
+  color: #747B86;
   margin: 5px;
   &:hover {
     color: #f15a23;
@@ -36,4 +36,8 @@ html, body {
 }
 .site-footer {
   background: orange;
+}
+
+.footer-logo {
+  border-right: 1px solid #eff2f1;
 }
