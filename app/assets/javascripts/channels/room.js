@@ -12,10 +12,12 @@
       else {
         sender_type = 'player';
       }
-      let message_element = '<div class="item"><div class="content speech-bubble-' + sender_type +'"><p><strong>' + data.user.first_name +
-          '</strong> ' + data.message_time + '</p><p>' + data.message.body + '</p></div></div>'
+      let message_element = $('<div class="item"><div class="content speech-bubble-' + sender_type +'"><p><strong>' + data.user.first_name +
+          '</strong> ' + data.message_time + '</p><p>' + data.message.body + '</p></div></div>')
       if (data.message.body) {
-        $('#messages-table').append(message_element)
+        $('#messages-table .message-items').append(message_element)
+        console.log(message_element.get());
+        message_element.get()[0].scrollIntoView({behavior: 'smooth'});
       }
     }
   });
