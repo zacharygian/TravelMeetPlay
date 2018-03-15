@@ -3,7 +3,6 @@
 Experience.destroy_all
 Event.destroy_all
 Sport.destroy_all
-User.destroy_all
 
 Sport.create(name: 'Basketball')
 Sport.create(name: 'Football')
@@ -47,28 +46,25 @@ User.create(first_name: 'Kevin', last_name: 'Malone', age: 27, email: 'kevin@exa
 puts "created #{User.all.count} users"
 
 
-user = User.first
-Experience.create(user_id: user.id, sport_id: Sport.first.id, skill_level: 3)
-
 puts "created #{Experience.all.count} experiences"
 
 
 # host_id = User.all.sample.id
 # sport_id = Sport.all.sample.id
 
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Meguro", date: Date.today - 3, max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
-Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Meguro", date: Date.today - 3, max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Gotanda", date: Date.today + rand(1..10), max_players: 3, spots_left: 3, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Tokyo Station", date: Date.today + rand(1..10), max_players: 2, spots_left: 2, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Ginza", date: Date.today + rand(1..10), max_players: 5, spots_left: 5, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
+# Event.create(host_id: User.all.sample.id, sport_id: Sport.all.sample.id, address: "Shinagawa", date: Date.today + rand(1..10), max_players: 4, spots_left: 4, sku: "3", price_cents: 1000, description: "This event is really cool and you should join me!")
 
 puts "created #{Event.all.count} events"
 
