@@ -2,31 +2,33 @@
   <div class="home">
     <div class="row all-cards">
       <h3>Hey <%= @user.first_name %>! Here's what's happening around you:</h3>
-      <% @events.each do |event| %>
-        <%= link_to event_path(event) do %>
-        <div class="col-xs-12 col-sm-4 col-lg-4">
-          <div class="card">
-            <div>
-              <%= image_tag ("#{event.sport.name.downcase}.png"), class: "card-photo" %>
+      <div class="col-xs-8 col-sm-8 col-lg-8 col-xl-8">
+        <% @events.each do |event| %>
+          <%= link_to event_path(event) do %>
+            <div class="card col-xs-4 col-sm-4 col-lg-4">
+              <div>
+                <%= image_tag ("#{event.sport.name.downcase}.png"), class: "card-photo" %>
+              </div>
+              <div class="booking-content">
+                <h4><%= event.sport.name %></h4>
+                <p><i class="fas fa-location-arrow"></i> <%= event.address %></p>
+                <p>By <%= event.host.first_name %></p>
+                <p><%= event.nice_date %></p>
+              </div>
             </div>
-            <div class="booking-content">
-              <h4><%= event.sport.name %></h4>
-              <p><i class="fas fa-location-arrow"></i> <%= event.address %></p>
-              <p>By <%= event.host.first_name %></p>
-              <p><%= event.nice_date %></p>
-            </div>
-          </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div
-      id="map"
-      style="width: 100%;
-      position: sticky;
-      height: 100vh;
-      margin: 10px;"
-      data-markers="<%= @markers.to_json %>">
+      </div>
+      <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 mapper">
+        <div
+          id="map"
+          style="width: 100%;
+          position: sticky;
+          height: 90vh;
+          margin: 10px;"
+          data-markers="<%= @markers.to_json %>">
+        </div>
+      </div>
     </div>
   </div>
 </div>
