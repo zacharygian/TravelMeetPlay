@@ -35,7 +35,7 @@
     <div class="field">
       <%= f.text_area :body, class: "form-control" %>
     </div>
-      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+      <%= f.text_field :user_id, id: 'current-user-id', value: current_user.id, type: "hidden"  %>
     <div>
       <%= f.submit "Send", class: "ui blue labeled submit icon button", id: "button" %>
     </div>
