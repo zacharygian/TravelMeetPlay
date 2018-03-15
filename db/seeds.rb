@@ -1,6 +1,5 @@
 
 
-Experience.destroy_all
 Event.destroy_all
 Sport.destroy_all
 
