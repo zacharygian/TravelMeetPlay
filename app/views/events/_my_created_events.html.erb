@@ -1,13 +1,14 @@
 <div class="col-lg-6">
   <div class="my_titles">
-    <h3>
-      Events you have created:
-      <%= link_to new_event_url do %>
-      <i class="fas fa-plus new_event"></i>
-    <% end %>
-    </h3>
+    <h3>Events you have created</h3>
+    <hr>
   </div>
-  <hr>
+  <p class="new_event">
+    <%= link_to new_event_url do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+    Create new event
+  </p>
   <div class="row separator">
     <% @events.each do |event| %>
       <div class="row boxer card_fonts">
