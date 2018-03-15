@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = current_user
     authorize @event
   end
 
@@ -60,6 +61,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     authorize @event
   end
 
