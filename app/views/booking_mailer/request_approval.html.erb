@@ -1,5 +1,27 @@
-<p>
-  Hi, <%= @booking.event.host.first_name %>, You've got participation request to your event.
+<h4>
+  Hey <%= @booking.event.host.first_name %>!
+</h4>
 
-<%= link_to "Check and Approve from here", dashboard_url %>
+<p>
+  We've got news for you. Someone has requested to join your event!
+</p>
+
+<br>
+
+<p>
+  You can quickly access your event <%= link_to "HERE", dashboard_url %>.
+</p>
+
+<br>
+
+<p>
+  We hope you have a great time, and don't forget to HIGHLIGHT YOUR GAME!
+</p>
+
+<p>
+  Thanks for using Travel. Meet. Play.
+</p>
+
+<p>
+  The T.M.P. team.
 </p>
