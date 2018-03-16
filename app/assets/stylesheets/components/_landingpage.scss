@@ -41,3 +41,45 @@
   background-repeat: no-repeat;
   background-size: cover !important;
 }
+
+.discription-box {
+  margin-top:50px;
+  padding: 50px;
+  text-align: center;
+  background-color: #26c9c4;
+  font-family: "roboto", "sans-serif";
+  color: white;
+
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon img{
+  height: 250px;
+}
+
+.sports img{
+  height: 200px;
+}
+
+.how-to {
+  margin-bottom:50px;
+  padding: 50px;
+  text-align: center;
+  background-color: white;
+  font-family: "roboto", "sans-serif";
+
+}
+
+.how-to-icon img{
+  height: 200px;
+}
+
+.top-button{
+  margin-top:50px;
+  margin-bottom:50px;
+}

@@ -25,4 +25,68 @@
       </div>
     </div>
   </div>
+
+  <div class="discription-box">
+    <h2>Love to Travel? Love to Play Sports?</h2>
+    <div class="box">
+      <div class="icon">
+        <%= image_tag ("globe.png")   %>
+      </div>
+      <div class="sports">
+        <%= image_tag ("sports_2.png")  %>
+      </div>
+    </div>
+    <h2>Keep playing at your destination with Travel.Meet.Play!</h2>
+  </div>
+
+  <div class="how-to">
+    <h2>How to Travel.Meet.Play</h2>
+  <div class="row steps-box">
+    <div class="col-xs-12 col-lg-4 step-1 ">
+      <div class="discription">
+        <h4>Step 1</h4>
+      </div>
+      <div class="discription">
+        <p>Choose date and sport you play</p>
+      </div>
+      <div class="how-to-icon">
+      <%= image_tag ("calender.png")  %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-lg-4 step-2">
+      <div class="discription">
+        <h4>Step 2</h4>
+      </div>
+      <div class="discription">
+        <p>Chat with event host for details</p>
+      </div>
+      <div class="how-to-icon">
+      <%= image_tag ("message.png")  %>
+      </div>
+    </div>
+     <div class="col-xs-12 col-lg-4 step-3">
+      <div class="discription">
+        <h4>Step 3</h4>
+      </div>
+      <div class="discription">
+        <p>Play!</p>
+      </div>
+      <div class="how-to-icon">
+      <%= image_tag ("play.png")  %>
+      </div>
+    </div>
+</div>
+
+  <div class="top-button">
+    <% if user_signed_in? %>
+        <%= link_to "Get started!",  events_path, class: "btn-landing" %>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Get started!"), new_user_session_path, class: "btn-landing" %>
+      <% end %>
+    </div>
+  </div>
+
+  </div>
+
+
 </body>
