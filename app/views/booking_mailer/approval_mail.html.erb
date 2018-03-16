@@ -1,6 +1,28 @@
-<p>
-  Hi <%= @booking.user.first_name %>,
-  You've got approved by <%= @booking.event.host.first_name %> to join <%= @booking.event.sport.name %> on <%= @booking.event.nice_date %>.
 
-<%= link_to "Check your booking from here", dashboard_url %>
+<h4>
+  Hey <%= @booking.user.first_name %>!
+</h4>
+
+<p>
+  Good news, you've been approved by <%= @booking.event.host.first_name %> to join <%= @booking.event.sport.name %> on the <%= @booking.event.nice_date %>.
+</p>
+
+<br>
+
+<p>
+  You can quickly access your booking <%= link_to "HERE", dashboard_url %>.
+</p>
+
+<br>
+
+<p>
+  We hope you have a great time <%= @booking.user.first_name %>, and don't forget to HIGHLIGHT YOUR GAME!
+</p>
+
+<p>
+  Thanks for using Travel. Meet. Play.
+</p>
+
+<p>
+  The T.M.P. team.
 </p>
