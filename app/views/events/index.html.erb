@@ -4,7 +4,8 @@
       <div class="col-xs-8 col-sm-8 col-lg-8 col-xl-8">
         <h3>Hi <%= @user.first_name %>! Here's what's happening around you</h3>
         <hr>
-        <% @events.each do |event| %>
+        <% @events.order(:date).each do |event| %>
+        <% unless event.date < Date.today %>
           <%= link_to event_path(event) do %>
             <div class="card col-xs-4 col-sm-4 col-lg-4">
               <div>
@@ -18,6 +19,7 @@
               </div>
             </div>
           <% end %>
+         <% end %>
         <% end %>
       </div>
       <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4 mapper">
