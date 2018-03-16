@@ -14,6 +14,7 @@ class PaymentsController < ApplicationController
 private
 
   def set_order
+    @event = Event.find(params[:event_id])
     @booking = Booking.where(status: 'pending').find(params[:booking_id])
   end
 end
